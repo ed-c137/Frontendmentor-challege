@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet"> 
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32x32.png">
+    <link rel='stylesheet' href='./assets/scss/scss/style.css'> 
+    <title>Frontend Mentor | All Components</title>
+</head>
+<body>
+    
+    <div class="theme-wrapper">
+        
+        <main>
+            <div class="main-wrapper">
+               <section id="component-1" class="grid-container ">
+                <div class="header text-center">
+                    <h1>1. Results summary component</h1>
+                    <p>A simple box with left and right section. Both flex and grid can be used</p>
+                </div>
+                <div class="content">
+                    <!-- Remaining content goes here -->
+                    <div class="flex-center h-100 align-items-start-m">
+                        <div class="split-box col-12 col-md-6">
+                            <div class="left w-100 text-center">
+                                <h3 class="pt-2 pb-4">Your Result</h3>
+                                <div class="result-output flex-center">
+                                    <span class="circle-out flex-center">
+                                        <span class="number">{{ percent }}</span>
+                                        <span class="of">of 100</span>
+                                    </span>
+                                </div>
+                                <h2 class="py-3">{{ grade }}</h2>
+                                <p class="px-5">You scored higher than 65% of the people who have taken these tests.</p>
+                            </div>
+                            <div class="right w-100">
+                              <h3>Summary</h3>
+                                <ul class="summary-stats">
+                                    <li class="flex-center" v-for="item in items">
+                                        <span class="border-curve"></span>
+                                        <img :src="item.icon" :alt="item.category + 'image'">
+                                        <span>{{ item.category }}</span>
+                                        <span class="percent">{{ item.score }}</span>
+                                        <span class="outof">&nbsp;/&nbsp;100</span>
+                                    </li>
+                                    
+                                </ul>
+                              <button class="btn rounded-pill continue">Continue</button>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+               
+               </section>
+               <section id="component-2" class="grid-container">
+                <div class="header text-center">
+                    <h1>2. Notifications Page Main</h1>
+                    <p>A simple box with left and right section. Both flex and grid can be used</p>
+                </div>
+                <div class="content">
+                    <div class="flex-center h-100 align-items-start-m">
+                        <div class="notification-box col-12 col-md-6">
+                            <div class="notification-header">
+                                <h2>Notification</h2><span class="notification-count">3</span><a class="muted" href="">Mark all as read</a>
+                            </div>
+                            <div class="notification-body">
+                                <ul class="notification-wrap">
+                                    <li class="unread-notif notif-item">
+                                        <span class="notif-from">
+                                            <img class="" src="./assets/img/section2/images/avatar-mark-webber.webp" alt="mark-webberimg">
+                                        </span>
+                                        <span class="d-flex flex-column notif-cont ms-2">
+                                            <span class="first-line">
+                                                <a href="" class="notif-poster">Mark Webber</a>
+                                                <span class="notif-text muted ms-1">reacted to your recent post</span>
+                                                <a class="notif-about ms-1" href="">My first tournament today!</a>
+                                            </span>
+                                            <span class="time-stamp mutedd">
+                                                1m ago
+                                            </span>
+                                        </span>
+                                    </li>
+                                    <li class="unread-notif notif-item">
+                                        <span class="notif-from">
+                                            <img class="" src="./assets/img/section2/images/avatar-angela-gray.webp" alt="angellagreyimg">
+                                        </span>
+                                        <span class="d-flex flex-column notif-cont ms-2">
+                                            <span class="first-line">
+                                                <a href="" class="notif-poster">Angella Gray</a>
+                                                <span class="notif-text muted ms-1">followed you</span>
+                                                
+                                            </span>
+                                            <span class="time-stamp mutedd">
+                                                5m ago
+                                            </span>
+                                        </span>
+                                    </li>
+                                    <li class="unread-notif notif-item">
+                                        <span class="notif-from">
+                                            <img class="" src="./assets/img/section2/images/avatar-jacob-thompson.webp" alt="jacob-thompsonimg">
+                                        </span>
+                                        <span class="d-flex flex-column notif-cont ms-2">
+                                            <span class="first-line">
+                                                <a href="" class="notif-poster">Jacob Thompson</a>
+                                                <span class="notif-text muted ms-1">has joined you group</span>
+                                                <a class="notif-about unclicked ms-1" href="">Chess Club</a>
+                                            </span>
+                                            <span class="time-stamp mutedd">
+                                                1 day ago
+                                            </span>
+                                        </span>
+                                    </li>
+                                    <li class="notif-item">
+                                        <span class="notif-from">
+                                            <img class="" src="./assets/img/section2/images/avatar-rizky-hasanuddin.webp" alt="rizkyimg">
+                                        </span>
+                                        <span class="d-flex flex-column notif-cont ms-2">
+                                            <span class="first-line">
+                                                <a href="" class="notif-poster">Rizky Hasanuddin</a>
+                                                <span class="notif-text muted ms-1">sent you a private message</span>
+                                                
+                                            </span>
+                                            <span class="time-stamp mutedd">
+                                                5 days ago
+                                            </span>
+                                            <p class="muted msgrecvd">Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and I'm already having lots of fun and improving my game.</p>
+                                        </span>
+                                    </li>
+                                    <li class="notif-item">
+                                        <span class="notif-from">
+                                            <img class="" src="./assets/img/section2/images/avatar-kimberly-smith.webp" alt="kimsmithimg">
+                                        </span>
+                                        <span class="d-flex flex-column notif-cont ms-2">
+                                            <span class="first-line">
+                                                <a href="" class="notif-poster">Kimberly Smith</a>
+                                                <span class="notif-text muted ms-1">commented on your picture</span>
+                                            </span>
+                                            <span class="time-stamp mutedd">
+                                                1week ago
+                                            </span>
+                                        </span>
+                                        <span class="notif-imgpic">
+                                            <img class="" src="./assets/img/section2/images/image-chess.webp" alt="chessimg">
+                                        </span>
+                                    </li>
+                                    <li class="notif-item">
+                                        <span class="notif-from">
+                                            <img class="" src="./assets/img/section2/images/avatar-nathan-peterson.webp" alt="nathanimg">
+                                        </span>
+                                        <span class="d-flex flex-column notif-cont ms-2">
+                                            <span class="first-line">
+                                                <a href="" class="notif-poster">Nathan Peterson</a>
+                                                <span class="notif-text muted ms-1">reacted to your recent post</span>
+                                                <a class="notif-about ms-1" href="">5 end-game strategies to increase your win rate</a>
+                                            </span>
+                                            <span class="time-stamp mutedd">
+                                                2 weeks ago
+                                            </span>
+                                        </span>
+                                    </li>
+                                    <li class="notif-item">
+                                        <span class="notif-from">
+                                            <img class="" src="./assets/img/section2/images/avatar-anna-kim.webp" alt="annakimimg">
+                                        </span>
+                                        <span class="d-flex flex-column notif-cont ms-2">
+                                            <span class="first-line">
+                                                <a href="" class="notif-poster">Anna Kim</a>
+                                                <span class="notif-text muted ms-1">left the group</span>
+                                                <a class="notif-about unclicked ms-1" href="">Chess Club</a>
+                                            </span>
+                                            <span class="time-stamp mutedd">
+                                                2 week ago
+                                            </span>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               </section>
+               <section id="component-3" class="grid-container">
+                <div class="header text-center">
+                    <h1>3. Interactive Rating Component</h1>
+                    <p>A simple box with left and right section. Both flex and grid can be used</p>
+                </div>
+                <div class="content">
+                    <div class="flex-center h-100 align-items-start-m">
+                        <div class="rating-box col-12 col-md-3">
+                            <div class="">
+                                <span class="icon-star-circ"><img src="./assets/img/section3/icon-star.svg" alt="icon-star"></span>
+                            </div>
+                            <div class="title">
+                                How did we do?
+                            </div>
+                            <p>Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!</p>
+                            <ul>
+                                <li><a href="">1</a></li>
+                            </ul>
+                            <button class="btn btn-submit">SUBMIT</button>
+                            <!-- else -->
+                            <!-- <div class="thankyou">
+                                <div class="img-wrap col-5 m-auto">
+                                    <img src="./assets/img/section3/illustration-thank-you.svg" alt="thankyou"></div>
+                                    <span class=" rating-feedback">You selected * out of 5</span>
+                                    <div class="title">
+                                        Thank you!
+                                    </div>
+                                    <p>We appreciate you taking the time to give a rating.
+                                        If you ever need more support, don't hesitate to get in touch!</p>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+               </section>
+               <section id="component-4" class="grid-container">
+                <div class="header text-center">
+                    <h1>4. NFT Preview Card Component</h1>
+                    <p>A simple box with left and right section. Both flex and grid can be used</p>
+                </div>
+                <div class="content">
+                    <div class="flex-center h-100 align-items-start-m">
+                        <div class="nft-box col-12 col-md-3">
+                            <div class="nft-card">
+                                <div class="nft-img" style="background-image: url(./assets/img/section4/image-equilibrium.jpg);">
+                                    <!-- <img src="" alt=""> -->
+                                    <div class="img-overlay">
+                                        <img src="./assets/img/section4/icon-view.svg" alt="viewimg">
+                                    </div>
+                                </div>
+                                <span class="title">
+                                    Equilbrium #3429
+                                </span>
+                                <p class="desc">
+                                    Our Equilibrium collection promotes balance and calm.
+                                </p>
+                                <div class="valntime">
+                                    <span class="val  flex-center ">
+                                        <img src="./assets/img/section4/icon-ethereum.svg" alt="">
+                                        <span class="ms-2">0.041ETH</span>
+                                    </span>
+                                    <span class="time flex-center ">
+                                        <img src="./assets/img/section4/icon-clock.svg" alt="">
+                                        <span class="ms-2">3 days left</span>
+                                    </span>
+                                </div>
+                                <div class="nft-footer ">
+                                    <span class="nft-avtr"><img src="./assets/img/section4/image-avatar.png" alt=""></span>
+                                    <span class="ms-3">Creation of</span>
+                                    <span class="ms-1 title ">Jules Wyvern</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               </section>
+               <section id="component-5" class="grid-container">
+                <div class="header text-center">
+                    <h1>5. FAQ Accordian Main</h1>
+                    <p>A simple box with left and right section. Both flex and grid can be used</p>
+                </div>
+                <div class="content">
+                    <div class="flex-center h-100 align-items-start-m">
+                        <div class="faq-box d-flex col-12 col-md-10">
+                            <div class="faq-left-img col-6">
+                                <div class="moblie-img d-md-none d-block">
+                                    <img class="img-artbox" src="./assets/img/section5/illustration-woman-online-mobile.svg" alt="">
+                                    <img class="d-md-none img-artbox-bg" src="./assets/img/section5/bg-pattern-mobile.svg" alt="">
+                                </div>
+                                <div class="desktop-img d-none d-md-inline-block">
+                                    <img class="img-art-bg" src="./assets/img/section5/bg-pattern-desktop.svg" alt="">
+                                    <img class="img-box" src="./assets/img/section5/illustration-box-desktop.svg" alt="">
+                                    <img class="d-none d-md-inline-block img-art" src="./assets/img/section5/illustration-woman-online-desktop.svg" alt="">
+                                </div>
+                            </div>
+                            <div class="faq-right col-6">
+                                <div class="faq-header">
+                                    FAQ
+                                </div>
+                                <div class="faq-content">
+                                    <ul>
+                                        <li>
+                                        <input type="checkbox" checked>
+                                        <i></i>
+                                        <h2>How many team members can I invite?</h2>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae debitis iusto voluptatum doloribus rem, qui nesciunt labore tempore fugit iste deserunt incidunt error provident repudiandae laudantium quo ipsa unde perspiciatis, nihil autem distinctio! Deserunt, aspernatur.</p>
+                                        </li>
+                                        <li>
+                                        <input type="checkbox" checked>
+                                        <i></i>
+                                        <h2>What is the maximum file upload size?</h2>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente quasi, quia provident facere recusandae itaque assumenda fuga veniam dicta earum dolorem architecto facilis nisi pariatur.</p>
+                                        </li>
+                                        <li>
+                                        <input type="checkbox" checked>
+                                        <i></i>
+                                        <h2>Tell me more about Reserve Now..?</h2>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam quas placeat assumenda mollitia magni consequatur dolorum, quod nihil distinctio aperiam officia alias! Voluptate dolore ex officiis sit, magnam non a, eligendi pariatur aut, earum dolores tenetur ipsam id illo deleniti. Laudantium deserunt eaque ipsam voluptatum consequuntur voluptatibus sed minima ad accusamus debitis eos similique laboriosam, molestiae? Consequatur neque tempore quis. Eligendi, in ut aspernatur esse nesciunt libero.</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               </section>
+               <section id="component-6" class="grid-container">
+                <div class="header text-center">
+                    <h1>6. Order Summary Component</h1>
+                    <p>A simple box with left and right section. Both flex and grid can be used</p>
+                </div>
+                <div class="content" >
+                    <div class="bg-desktop d-none d-md-block">
+                        <img src="./assets/img/section6/pattern-background-desktop.svg" alt="">
+                    </div>
+                    <div class="bg-mobile d-md-none">
+                        <img src="./assets/img/section6/pattern-background-mobile.svg" alt="">
+                    </div>
+                    <div class="order-box-wrap flex-center h-100">
+                        <div class="order-box col-12 col-md-3">
+                            <div class="img-card w-100">
+                                <img src="./assets/img/section6/illustration-hero.svg" alt="">
+                            </div>
+                            <div class="card__body">
+                                <h2>Order Summary</h2>
+                                <p>You can now listen to millions of songs, audiobooks, and podcasts on any device anywhere you like!</p>
+                                <div class="plan">
+                                    <img src="./assets/img/section6/icon-music.svg" alt="">
+                                    <div class="pricing-detail">
+                                        <h3>Annual Plan</h3>
+                                        <p>$59.99/year</p>
+                                    </div>
+                                    <a class="change" href="#">Change</a>
+                                </div>
+                                <button class="btn btn-size btn-payment">Proceed to Payment</button>
+                                <button class="btn btn-size btn-cancel">Cancel Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               </section>
+               <section id="component-7" class="grid-container">
+                <div class="header text-center">
+                    <h1>7. 3 Column preview card Component</h1>
+                    <p>A simple box with left and right section. Both flex and grid can be used</p>
+                </div>
+                <div class="content">
+                    <div class="flex-center h-100 align-items-start-m">
+                        <div class="three-card-box col-12 col-md-10">
+                            <div class="card cd-sd">
+                                <div class="icon">
+                                    <img src="./assets/img/section7/icon-sedans.svg" alt="">
+                                </div>
+                                <div class="title">
+                                    Sedans
+                                </div>
+                                <p>Choose a sedan for its affordability and excellent fuel economy. Ideal for cruising in the city or on your next road trip.</p>
+                                <button class="btn btn-more">Learn More</button>
+                            </div>
+                            <div class="card cd-sv">
+                                <div class="icon">
+                                    <img src="./assets/img/section7/icon-suvs.svg" alt="">
+                                </div>
+                                <div class="title">
+                                    SUVS
+                                </div>
+                                <p>Take an SUV for its spacious interior, power, and versatility. Perfect for your next family vacation and off-road adventures.</p>
+                                <button class="btn btn-more">Learn More</button>
+                            </div>
+                            <div class="card cd-lx">
+                                <div class="icon">
+                                    <img src="./assets/img/section7/icon-luxury.svg" alt="">
+                                </div>
+                                <div class="title">
+                                   Luxury
+                                </div>
+                                <p>Cruise in the best car brands without the bloated prices.
+                                    Enjoy the enhanced comfort of a luxury rental and arrive in style.</p>
+                                <button class="btn btn-more buttons">Learn More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               </section>
+               <section id="component-8" class="grid-container">
+                <div class="header text-center">
+                    <h1>8. Article Preview Component</h1>
+                    <p>A simple box with left and right section. Both flex and grid can be used</p>
+                </div>
+                <div class="content">
+                    <div class="flex-center h-100 align-items-start-m">
+                        <div class="article-box col-12 col-md-6">
+                            <div class="img-left" style="background-image: url(./assets/img/section8/drawers.jpg);">
+                                <!-- <img src="./assets/img/section8/drawers.jpg" alt=""> -->
+                            </div>
+                            <div class="content-right">
+                                <h2>Shift the overall look and feel by adding these wonderful touches to furniture in your home</h2>
+                                <p>Ever been in a room and felt like something was missing?
+                                    Perhaps it felt slightly bare and uninviting. I've got some simple tips to help you make any room feel complete.</p>
+                                <div class="level article-footer">
+                                    <div class="user">
+                                        <img src="./assets/img/section8/avatar-michelle.jpg" alt="">
+                                        <span>
+                                            <h3>Michelle Appleton</h3>
+                                            <span class="date">28 Jun 2020</span>
+                                        </span>
+                                    </div>
+                                    <button class="btn share-btn"><img src="./assets/img/section8/icon-share.svg" alt=""></button>
+                                    <div class="tooltip level">
+                                        <span class="s">share</span>
+                                        <a href=""><img src="./assets/img/section8/icon-facebook.svg" alt=""></a>
+                                        <a href=""><img src="./assets/img/section8/icon-twitter.svg" alt=""></a>
+                                        <a href=""><img src="./assets/img/section8/icon-pinterest.svg" alt=""></a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               </section>
+               <section id="component-9" class="grid-container">
+                <div class="header text-center">
+                    <h1>9. Fylo data storage Component</h1>
+                    <p>A simple box with left and right section. Both flex and grid can be used</p>
+                </div>
+                <div class="content">
+                    <div class="bg d-flex align-items-end h-100">
+                        <div class="bg-desktop d-none d-md-flex w-100 ">
+                            <img class="w-100" src="./assets/img/section9/bg-desktop.png" alt="">
+                        </div>
+                        <div class="bg-mobile d-flex d-md-none">
+                            <img class="w-100" src="./assets/img/section9/bg-mobile.png" alt="">
+                        </div>
+                    </div>
+                    <div class="flex-center h-100 w-100 m-auto">
+                        <div class="fylo-storage-box col-12 col-md-7">
+                            <div class="box-1 box">
+                                <img class="fylo-logo" src="./assets/img/section9/logo.svg" alt="">
+                                <div class="level mt-4">
+                                    <button class="btn"><img src="./assets/img/section9/icon-document.svg" alt=""></button>
+                                    <button class="btn"><img src="./assets/img/section9/icon-folder.svg" alt=""></button>
+                                    <button class="btn"><img src="./assets/img/section9/icon-upload.svg" alt=""></button>
+                                </div>
+                            </div>
+                            <div class="box-2 box">
+                                <div class="bubble-wrapper">
+                                    <div class="bubble"><span>185</span> <span>GB LEFT</span></div>
+                                </div>
+                                    <div class="other-box-cont">
+                                    <p class="used-data">
+                                      You’ve used<span>&nbsp;815 GB&nbsp;</span>of your storage
+                                    </p>
+                                    <div class="progress-bar-wrapper">
+                                      <div class="progress-bar">
+                                        <div class="small-circle"></div>
+                                      </div>
+                                    </div>
+                                    <div class="labels">
+                                      <p class="minimum-data">0 GB</p>
+                                      <p class="maximum-data">1000 GB</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               </section>
+               <section id="component-10" class="grid-container">
+                <div class="header text-center">
+                    <h1>10. Profile Card Component</h1>
+                    <p>A simple box with left and right section. Both flex and grid can be used</p>
+                </div>
+                <div class="content">
+                    <div class="flex-center h-100">
+                        <div class="profile-box">
+                    
+                                <div class="bg-area"></div>
+                                <div class="profile">
+                                  <img
+                                    class="profile-photo"
+                                    src="./assets/img/section10/image-victor.jpg"
+                                    alt="Profile Photos"
+                                  />
+                                  <div class="nac flex-center">
+                                      <p class="nameage">Victor Crest <span id="age">26</span></p>
+                                      <div class="country">London</div>
+                                  </div>
+                                
+                        
+                                <div class="social-media-statics">
+                                  <div>
+                                    <p class="statics">80K</p>
+                                    <p class="label">Followers</p>
+                                  </div>
+                        
+                                  <div>
+                                    <p class="statics">803K</p>
+                                    <p class="label">Likes</p>
+                                  </div>
+                        
+                                  <div>
+                                    <p class="statics">1.4K</p>
+                                    <p class="label">Photos</p>
+                                  </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+               </section>
+               <section id="component-11" class="grid-container">
+                <div class="header text-center">
+                    <h1>11. Single Price Grid Component</h1>
+                    <p>A simple box with left and right section. Both flex and grid can be used</p>
+                </div>
+                <div class="content">
+                    <div class="flex-center h-100">
+                        <div class="price-grid-box ">
+                                <div class="card top-card">
+                                  <h1 class="top-card--primary-heading">Join our community</h1>
+                        
+                                  <h2 class="heading top-card--secondary-heading">
+                                    30-day, hassle-free money back guarantee
+                                  </h2>
+                        
+                                  <p class="top-card--text">
+                                    Gain access to our full library of tutorials along with expert code
+                                    reviews. Perfect for any developers who are serious about honing
+                                    their skills.
+                                  </p>
+                                </div>
+                        
+                                <div class="card left-card">
+                                  <h2 class="heading">Monthly Subscription</h2>
+                        
+                                  <div class="left-card--currency-wrapper">
+                                    <p class="currency">&dollar;29</p>
+                                    <small>per month</small>
+                                  </div>
+                        
+                                  <p class="left-card--text">
+                                    Full access for less than &dollar;1 a day
+                                  </p>
+                        
+                                  <button>Sign Up</button>
+                                </div>
+
+                                <div class="card right-card">
+                                  <h2 class="heading">Why Us</h2>
+                        
+                                  <p class="right-card--text">
+                                    Tutorials by industry experts Peer &amp; expert code review
+                                    <span>Coding exercises</span>
+                                    Access to our GitHub repos
+                                    <span>Community forum</span>
+                                    <span>Flashcard decks</span>
+                                    New videos every week
+                                  </p>
+                                </div>
+                              
+                        </div>
+                    </div>
+                </div>
+               </section>
+               <section id="component-12" class="grid-container">
+                <div class="header text-center">
+                    <h1>12. Interactive Price Component</h1>
+                    <p>A simple box with left and right section. Both flex and grid can be used</p>
+                </div>
+                <div class="content">
+                    <div class="flex-center h-100 w-100">
+                        <div class="interactive-price-box h-100 w-100">
+                            <div class="header-container">
+                                <div class="header-img-bg">
+                                    <img src="./assets/img/section12/bg-pattern.svg" alt="">
+                                </div>
+                                <div class="header-content">
+                                    <h1>Simple, traffic-based pricing</h1>
+                                    <p>
+                                        Sign-up for our 30-day trial. No credit card required.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="cards col-md-4 m-auto">
+                                <!-- <div class="container"> -->
+                                    <div class="card">
+                                        <div class="card__header">
+                                            <div class="header-top">
+                                                <span class="card__view" id="pageviews-count">
+                                                    100K <span>Pageviews</span>   
+                                                </span>
+                                                <h2 class="card__price">
+                                                    <span id="price">$16.00</span>
+                                                    <span class="duration">/month</span>
+                                                </h2>
+                                                <input
+                                                    type="range"
+                                                    name="range"
+                                                    class="slider"
+                                                    id="range"
+                                                    aria-label="input"
+                                                />
+                                            </div>
+                                            
+                
+                                            <div class="card__content">
+                                                <p>Monthly Billing</p>
+                                                <input
+                                                    type="checkbox"
+                                                    name="checkanually"
+                                                    class="switch"
+                                                    aria-label="input"
+                                                    id="toggle_discount"
+                                                />
+                                                <p class="billing">Yearly Billing</p>
+                                                <p class="discount">
+                                                    -25%<span> discount</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="card__footer">
+                                            <ul class="card__list">
+                                                <li class="card__item">
+                                                    <img
+                                                        src="./assets/img/section12/icon-check.svg"
+                                                        alt="icon-check"
+                                                    />
+                                                    Unlimited websites
+                                                </li>
+                                                <li class="card__item">
+                                                    <img
+                                                        src="./assets/img/section12/icon-check.svg"
+                                                        alt="icon-check"
+                                                    />
+                                                    100% data ownership
+                                                </li>
+                                                <li class="card__item">
+                                                    <img
+                                                        src="./assets/img/section12/icon-check.svg"
+                                                        alt="icon-check"
+                                                    />
+                                                    Email reports
+                                                </li>
+                                            </ul>
+                
+                                            <button class="btn">
+                                                Start my trial
+                                            </button>
+                                        </div>
+                                    </div>
+                                <!-- </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               </section>
+               <section id="component-13" class="grid-container">
+                <div class="header text-center">
+                    <h1>13. Stats Preview Card Component</h1>
+                    <p>A simple box with left and right section. Both flex and grid can be used</p>
+                </div>
+                <div class="content">
+                    <div class="flex-center h-100">
+                        <div class="stastpreview-box col-12 col-md-6 m-auto">
+                                <section >
+                                  <h1>Get <span>insights</span> that help your business grow.</h1>
+                                  <div class="">
+                                    <p class="des">
+                                      Discover the benefits of data analytics and make better decisions
+                                      regarding revenue, customer experience, and overall efficiency.
+                                    </p>
+                                    <ul>
+                                      <li>
+                                        <h2>10k+</h2>
+                                        <p>companies</p>
+                                      </li>
+                                      <li>
+                                        <h2>314</h2>
+                                        <p>templates</p>
+                                      </li>
+                                      <li>
+                                        <h2>12M+</h2>
+                                        <p>queries</p>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </section>
+                                <div class="bg-img">
+                                  <img class="mb-img d-md-none" src="./assets/img/section13/image-header-mobile.jpg" alt="">
+                                  <img class="dt-img d-none d-md-block" src="./assets/img/section13/image-header-desktop.jpg" alt="">
+                                </div>
+                              
+                        </div>
+                    </div>
+                </div>
+               </section>
+
+               
+               <section id="component-14" class="grid-container testimonial-section">
+                <div class="header text-center">
+                    <h1> Testimonial grid section</h1>
+                    <p>A simple box with left and right section. Both flex and grid can be used</p>
+                </div>
+                <div class="content">
+                    <div class="testimonials-grid-wrapper col-md-9 m-auto">
+                        <div class="test-item test-1">
+                            <div class="author">
+                                <img class="author-img" src="./assets/img/section14/image-daniel.jpg" alt="author-img">
+                                <div class="author-info">
+                                    <p class="aname">Daniel Clifford</p>
+                                    <p class="desc">Verified Graduate</p>
+                                </div>
+                            </div>
+                            <div class="highlight-content">
+                                <p>I received a job offer mid-course, and the subjects I learned
+                                    were current, if not more so, in the company I joined. I
+                                    honestly feel I got every penny's worth.</p>
+                            </div>
+                            <div class="content-wrap">
+                                <q>I was an EMT for many years before I joined the bootcamp. I've been looking to make a
+                                    transition and have heard some people who had an amazing experience here. I signed up for
+                                    the free intro course and found it incredibly fun! I enrolled shortly thereafter, The next 12
+                                    weeks was the best- and most grueling - time of my life. Since completing the course, I've
+                                    successfully switched careers, working as a Software Engineer at a VR startup.</q>
+                            </div>
+                        </div>
+                        <div class="test-item test-2">
+                            <div class="author">
+                                <img class="author-img" src="./assets/img/section14/image-jonathan.jpg" alt="author-img">
+                                <div class="author-info">
+                                    <p class="aname">Jonathan Walters</p>
+                                    <p class="desc">Verified Graduate</p>
+                                </div>
+                            </div>
+                            <div class="highlight-content">
+                                <p>The team was very
+                                    supportive and kept me
+                                    motivated</p>
+                            </div>
+                            <div class="content-wrap">
+                                <q>I started as a total newble with
+                                    virtually no coding skills. I now work
+                                    as a mobile engineer for a big
+                                    company. This was one of the best
+                                    investments I've made in myself.</q>
+                            </div>
+                        </div>
+                        
+                        <div class="test-item test-3">
+                            <div class="author">
+                                <img class="author-img" src="./assets/img/section14/image-jeanette.jpg" alt="author-img">
+                                <div class="author-info">
+                                    <p class="aname">Jeanette Harmon</p>
+                                    <p class="desc">Verified Graduate</p>
+                                </div>
+                            </div>
+                            <div class="highlight-content">
+                                <p>An overall wonderful
+                                    and rewarding
+                                    experience</p>
+                            </div>
+                            <div class="content-wrap">
+                                <q>Thank you for the wonderful
+                                    experience! I now have a job I really
+                                    enjoy, and make a good living while
+                                    doing something I love.</q>
+                            </div>
+                        </div>
+                        <div class="test-item test-4">
+                            <div class="author">
+                                <img class="author-img" src="./assets/img/section14/image-patrick.jpg" alt="author-img">
+                                <div class="author-info">
+                                    <p class="aname">Patrick Abrams</p>
+                                    <p class="desc">Verified Graduate</p>
+                                </div>
+                            </div>
+                            <div class="highlight-content">
+                                <p>Awesome teaching support from TAs who did the bootcamp
+                                    themselves. Getting guidance from them and learning from
+                                    their experiences was easy.</p>
+                            </div>
+                            <div class="content-wrap">
+                                <q>The staff seem genuinely concerned about my progress which I find really refreshing. The
+                                    program gave me the confidence necessary to be able to go out in the world and present
+                                    myself as a capable junior developer. The standard is above the rest. You will get the
+                                    personal attention you need from an incredible community of smart and amazing people.</q>
+                            </div>
+                        </div>
+                        <div class="test-item test-5">
+                            <div class="author">
+                                <img class="author-img" src="./assets/img/section14/image-kira.jpg" alt="author-img">
+                                <div class="author-info">
+                                    <p class="aname">Kira Whittle</p>
+                                    <p class="desc">Verified Graduate</p>
+                                </div>
+                            </div>
+                            <div class="highlight-content">
+                                <p>Such a life-changing
+                                    experience. Highly
+                                    recommended!</p>
+                            </div>
+                            <div class="content-wrap">
+                                <q>Before joining the bootcamp, I've
+                                    never written a line of code, I needed
+                                    some structure from professionals
+                                    who can help me learn programming
+                                    step by step. I was encouraged to
+                                    enroll by a former student of theirs
+                                    who can only say wonderful things
+                                    about the program. The entire
+                                    curriculum and staff did not
+                                    disappoint. They were very hands-on
+                                    and I never had to wait long for
+                                    assistance. The agile team project, in
+                                    particular, was outstanding. It took
+                                    my learning to the next level in a way
+                                    that no tutorial could ever have, in
+                                    fact, I've often referred to it during
+                                    interviews as an example of my
+                                    developent experience. It certainly
+                                    helped me land a job as a full-stack
+                                    developer after receiving multiple
+                                    offers, 100% recommend!</q>
+                            </div>
+                        </div>
+                </div>
+               </section>
+              
+               <section id="component-15" class="grid-container testimonial-slider">
+                <div class="header text-center">
+                    <h1> Coding Bootcamp Slider Component</h1>
+                    <p>A simple box with left and right section. Both flex and grid can be used</p>
+                </div>
+                <div class="content">
+                    <div class="testimonial-slider-wrapper">
+                        <main>
+                            <div id="page-tanya" class="slider">
+                              <div class="image-and-icons">
+                                <img class="background-pattern" src="./assets/img/section15/pattern-bg.svg" alt="background"
+                                />
+                                <img class="profile-image" src="./assets/img/section15/image-tanya.jpg" alt="woman picture"/>
+                                <div class="button-container">
+                                    <button id="prev-button" class="button" type="button">
+                                      <img id="left-arrow" class="button-icon" src="./assets/img/section15/icon-prev.svg" alt="icon prev"/>
+                                    </button>
+                                    <button id="next-button" class="button" type="button">
+                                      <img id="right-arrow" class="button-icon" src="./assets/img/section15/icon-next.svg" alt="icon next"/>
+                                    </button>
+                                  </div>
+                              </div>
+                      
+                              <div class="description-and-info">
+                                <p class="description-text">
+                                  “ I’ve been interested in coding for a while but never taken the
+                                  jump, until now. I couldn’t recommend this course enough. I’m now in
+                                  the job of my dreams and so excited about the future. ”
+                                </p>
+                      
+                                <div class="writer-info">
+                                  <p class="fullname">Tanya Sinclair</p>
+                                  <p class="job">UX Engineer</p>
+                                </div>
+                              </div>
+                            </div>
+                      
+                            <div id="page-john" class="slider hide">
+                              <div class="image-and-icons">
+                                <img class="background-pattern" src="./assets/img/section15/pattern-bg.svg" alt="background"/>
+                                <img class="profile-image" src="./assets/img/section15/image-john.jpg" alt="man picture"/>
+                      
+                                <div class="button-container">
+                                  <button id="prev-button" class="button" type="button">
+                                    <img id="left-arrow" class="button-icon" src="./assets/img/section15/icon-prev.svg" alt="icon prev"/>
+                                  </button>
+                                  <button id="next-button" class="button" type="button">
+                                    <img id="right-arrow" class="button-icon" src="./assets/img/section15/icon-next.svg" alt="icon next"/>
+                                  </button>
+                                </div>
+                              </div>
+                      
+                              <div class="description-and-info">
+                                <p class="description-text">
+                                  “ If you want to lay the best foundation possible I’d recommend
+                                  taking this course. The depth the instructors go into is incredible.
+                                  I now feel so confident about starting up as a professional
+                                  developer. ”
+                                </p>
+                      
+                                <div class="writer-info">
+                                  <p class="fullname">John Tarkpor</p>
+                                  <p class="job">Junior Front-end Developer</p>
+                                </div>
+                              </div>
+                            </div>
+                          </main>
+                    </div>
+               </div>
+               </section>
+
+               <section id="component-16" class="grid-container four-card">
+                <div class="header text-center">
+                    <h1>Four Card Feature Section</h1>
+                    <p>A simple box with left and right section. Both flex and grid can be used</p>
+                </div>
+                <div class="content">
+                    <div class="flex-center h-100 align-items-start-m">
+                        <div class="-box">
+                            <div class="wrapper">
+                                <header class="top-header">
+                                  <h1 class="top-header-heading">
+                                    Reliable, efficient delivery
+                                    <span>Powered by Technology</span>
+                                  </h1>
+                          
+                                  <p class="top-header-description">
+                                    Our Artificial Intelligence powered tools use millions of project data
+                                    points to ensure that your project is successful
+                                  </p>
+                                </header>
+                          
+                                <main>
+                                  <div class="card supervisor">
+                                    <h3 class="card-heading">Supervisor</h3>
+                                    <p class="card-description">
+                                      Monitors activity to identify project roadblocks
+                                    </p>
+                                    <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" >
+                                      <g fill="none">
+                                        <path fill="#676E74" d="M56.842 7.158c-9.526-9.563-24.902-9.525-34.428 0-8.025 8.026-9.45 20.44-3.525 30.003l-2.513 2.55-1.356 6.144 4.214 4.214 5.093-2.408 2.512-2.55a24.254 24.254 0 0030.003-3.525c9.563-9.526 9.525-24.902 0-34.428z"
+                                        />
+                                        <path fill="#474F54" d="M24.327 47.661l2.512-2.55a24.254 24.254 0 0030.003-3.525c9.563-9.526 9.525-24.902 0-34.428l-40.26 40.26 2.652 2.651 5.093-2.408z"
+                                        />
+                                        <path fill="#64E1DC" d="M54.213 9.787a20.56 20.56 0 00-14.585-6.041C28.236 3.746 19 12.98 19 24.372a20.564 20.564 0 006.041 14.586 20.564 20.564 0 0014.586 6.04c11.392 0 20.626-9.234 20.626-20.626a20.56 20.56 0 00-6.041-14.585z"
+                                        />
+                                        <path fill="#00C8C8" d="M60.254 24.372a20.56 20.56 0 00-6.041-14.585l-29.17 29.17A20.564 20.564 0 0039.627 45c11.392 0 20.626-9.235 20.626-20.627z"
+                                        />
+                                        <path fill="#EFEFF4" d="M56.239 23.41c-.184-.307-2.98-4.914-7.281-8.368-2.63-2.113-5.822-3.796-9.33-3.796-9.242 0-16.314 11.669-16.61 12.165l-.576.961.575.961c.184.309 2.98 4.916 7.28 8.37 2.631 2.112 5.823 3.795 9.33 3.795 9.243 0 16.315-11.668 16.612-12.165l.574-.96-.574-.962z"
+                                        />
+                                        <path fill="#DADAE5" d="M56.239 25.333l.574-.96-.574-.962c-.184-.308-2.98-4.915-7.281-8.369l-18.66 18.66c2.63 2.113 5.822 3.796 9.33 3.796 9.242 0 16.314-11.668 16.61-12.165z"
+                                        />
+                                        <path fill="#64E1DC" d="M43.604 20.396a5.607 5.607 0 00-3.976-1.65 5.632 5.632 0 00-5.626 5.626c0 1.551.631 2.958 1.65 3.976a5.609 5.609 0 003.976 1.65 5.632 5.632 0 005.625-5.626c0-1.55-.63-2.957-1.649-3.976z"
+                                        />
+                                        <path fill="#00C8C8" d="M45.253 24.372c0-1.55-.63-2.957-1.649-3.976l-7.952 7.952a5.608 5.608 0 003.976 1.65 5.632 5.632 0 005.625-5.626z"
+                                        />
+                                        <path fill="#676E74" d="M40.954 23.046a1.876 1.876 0 10-1.326 3.2 1.876 1.876 0 001.326-3.2z"
+                                        />
+                                        <path fill="#474F54" d="M41.503 24.372c0-.517-.21-.986-.55-1.326l-2.65 2.652a1.876 1.876 0 003.2-1.326z"
+                                        />
+                                        <path fill="#575C60" d="M20.333 43.667l-3.957-3.957L0 56.049l3.975 3.976L7.951 64l16.376-16.339z"
+                                        />
+                                        <path fill="#333637" d="M24.327 47.661l-3.994-3.994L3.975 60.025 7.951 64z"
+                                        />
+                                      </g>
+                                    </svg>
+                                  </div>
+                          
+                                  <div class="card teambuilder">
+                                    <h3 class="card-heading">Team Builder</h3>
+                                    <p class="card-description">
+                                      Scans our talent network to create the optimal team for your project
+                                    </p>
+                                    <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+                                      <g fill="none">
+                                        <path fill="#EFEFF4" d="M64 14.454v41.788H0V14.454l3.75-3.787h56.5z"/>
+                                        <path fill="#DADAE5" d="M64 14.454v41.788H32V10.667h28.25z" />
+                                        <path fill="#474F54" d="M0 0h64v15.515H0z" />
+                                        <path fill="#32393F" d="M32 0h32v15.515H32z" />
+                                        <g fill="#FF637B">
+                                          <path d="M7.758 5.818h3.685v3.879H7.758zM15.128 5.818h3.685v3.879h-3.685zM22.497 5.818h3.685v3.879h-3.685z"/>
+                                        </g>
+                                        <path fill="#FF637B" d="M45.576 42.245V64H34.355v-3.71h-3.74V64H19.394V42.245l11.37-9.275h3.105z"/>
+                                        <path fill="#DADAE5" d="M11.636 22.303h41.697v3.879H11.636z" />
+                                        <path fill="#C9C9D3" d="M32 22.303h20.364v3.879H32z" />
+                                        <path fill="#E63950" d="M45.576 42.245V64H33.939v-3.71H32V32.97h1.435z"/>
+                                        <path fill="#EFEFF4" d="M30.061 45.576h3.878v3.879h-3.878z" />
+                                        <path fill="#DADAE5" d="M32 45.576h1.939v3.879H32z" />
+                                        <path fill="#676E74" d="M50.424 45.779l-2.452 2.706-15.487-13.526-15.488 13.526-2.452-2.706 17.94-15.718z"/>
+                                        <path fill="#474F54" d="M32 30.061l18.424 15.718-2.518 2.706L32 34.959z"
+                                        />
+                                      </g>
+                                    </svg>
+                                  </div>
+                          
+                                  <div class="card karma">
+                                    <h3 class="card-heading">Karma</h3>
+                                    <p class="card-description">
+                                      Regularly evaluates our talent to ensure quality
+                                    </p>
+                                    <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64"
+                                    >
+                                      <g fill="none">
+                                        <path fill="#676E74" d="M26.375 52.625h11.25V64h-11.25z" />
+                                        <path fill="#333637" d="M32 52.625h5.625V64H32z" />
+                                        <path fill="#4C545A" d="M22.625 47h18.75v9.375h-18.75z" />
+                                        <path fill="#52585C" d="M32 47h9.375v9.375H32z" />
+                                        <path fill="#FFDA2D" d="M45.012 36.725c-2.325 1.913-3.637 4.612-3.637 7.425V47h-18.75v-2.85c0-2.85-1.238-5.512-3.3-7.125-5.062-3.938-7.95-9.862-7.95-16.275a20.585 20.585 0 017.613-16.013C22.7 1.737 27.238 0 32 0c1.462 0 2.962.15 4.425.45 8.1 1.688 14.475 8.45 15.9 16.663 1.275 7.5-1.425 14.85-7.313 19.612z" />
+                                        <path fill="#FDBF00" d="M45.012 36.725c-2.325 1.913-3.637 4.612-3.637 7.425V47H32V0c1.462 0 2.962.15 4.425.45 8.1 1.688 14.475 8.45 15.9 16.663 1.275 7.5-1.425 14.85-7.313 19.612z"/>
+                                        <path fill="#676E74" d="M18.875 45.125h26.25v3.75h-26.25z" />
+                                        <path fill="#FF9100" d="M39.956 10.143l2.651 2.651-3.979 3.978-2.651-2.651z"/>
+                                        <path fill="#FDBF00" d="M25.372 24.727l2.651 2.651-3.979 3.979-2.651-2.651zM30.125 28.25h3.75v5.625h-3.75z"/>
+                                        <path fill="#FF9100" d="M38.628 24.727l3.979 3.979-2.651 2.651-3.979-3.979zM39.5 18.875h5.625v3.75H39.5z"/>
+                                        <path fill="#FDBF00" d="M24.044 10.143l3.979 3.979-2.651 2.65-3.979-3.978zM18.875 18.875H24.5v3.75h-5.625zM30.125 7.625h3.75v5.625h-3.75z"/>
+                                        <g fill="#FFDA2D">
+                                          <path d="M0 18.875h7.625v3.75H0zM6.585 14.81l-5.75-3.75 2.08-3.12 5.75 3.75zM2.915 33.56l-2.08-3.12 5.75-3.75 2.08 3.12z"/>
+                                        </g>
+                                        <path fill="#FDBF00" d="M56.375 18.875H64v3.75h-7.625zM61.085 33.56l-5.75-3.75 2.08-3.12 5.75 3.75zM57.415 14.81l-2.08-3.12 5.75-3.75 2.08 3.12z" />
+                                        <path fill="#FF9100" d="M32 7.625h1.875v5.625H32zM32 28.25h1.875v5.625H32z"/>
+                                        <path fill="#333637" d="M32 45.125h13.125v3.75H32z" />
+                                        <path fill="#FDBF00" d="M32 11.375c-5.175 0-9.375 4.2-9.375 9.375s4.2 9.375 9.375 9.375 9.375-4.2 9.375-9.375-4.2-9.375-9.375-9.375z"/>
+                                        <path fill="#FF9100" d="M32 30.125v-18.75c5.175 0 9.375 4.2 9.375 9.375s-4.2 9.375-9.375 9.375z"/>
+                                        <path fill="#FFDA2D" d="M30.125 18.875h3.75v3.75h-3.75z" />
+                                        <path fill="#FDBF00" d="M32 18.875h1.875v3.75H32z" />
+                                      </g>
+                                    </svg>
+                                  </div>
+                          
+                                  <div class="card calculator">
+                                    <h3 class="card-heading">Calculator</h3>
+                                    <p class="card-description">
+                                      Uses data from past projects to provide better delivery estimates
+                                    </p>
+                                    <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" >
+                                      <g fill="none">
+                                        <path fill="#474F54" d="M64 0v41.25l-3.75 3.875H3.75L0 41.25V0z"/>
+                                        <path fill="#32393F" d="M64 0v41.25l-3.75 3.875H32V0z" />
+                                        <path fill="#DADAE5" d="M22.625 50.875h18.75v11.25h-18.75z" />
+                                        <path fill="#C9C9D3" d="M32 50.875h9.375v11.25H32z" />
+                                        <path fill="#EFEFF4" d="M0 41.25h64v11.5H0z" />
+                                        <path fill="#DADAE5" d="M32 41.25h32v11.5H32z" />
+                                        <path fill="#EFEFF4" d="M15.125 60.25h33.75V64h-33.75z" />
+                                        <path fill="#DADAE5" d="M32 60.25h16.875V64H32z" />
+                                        <path fill="#549EF2" d="M20.75 7.5c-7.236 0-13.125 5.889-13.125 13.125S13.514 33.75 20.75 33.75s13.125-5.889 13.125-13.125S27.986 7.5 20.75 7.5zm0 18.75a5.631 5.631 0 01-5.625-5.625A5.631 5.631 0 0120.75 15a5.631 5.631 0 015.625 5.625 5.631 5.631 0 01-5.625 5.625z"/>
+                                        <g fill="#377FD2">
+                                          <path d="M45.125 7.5H56.5v3.75H45.125zM37.625 7.5h3.75v3.75h-3.75zM45.125 22.5H56.5v3.75H45.125zM37.625 22.5h3.75v3.75h-3.75zM37.625 15H56.5v3.75H37.625zM37.625 30H56.5v3.75H37.625z"
+                                          />
+                                        </g>
+                                      </g>
+                                    </svg>
+                                  </div>
+                                </main>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+               </section>
+               <!-- <section id="component-?" class="grid-container">
+                <div class="header text-center">
+                    <h1> Multi-stepform</h1>
+                    <p>A simple box with left and right section. Both flex and grid can be used</p>
+                </div>
+                <div class="content">
+                    <div class="flex-center h-100 align-items-start-m">
+                        <div class="-box">
+                            
+                        </div>
+                    </div>
+                </div>
+               </section>
+               <section id="component-?" class="grid-container">
+                <div class="header text-center">
+                    <h1> Interactive Rating Component</h1>
+                    <p>A simple box with left and right section. Both flex and grid can be used</p>
+                </div>
+                <div class="content">
+                    <div class="flex-center h-100 align-items-start-m">
+                        <div class="-box">
+                            
+                        </div>
+                    </div>
+                </div>
+               </section> -->
+            </div>     
+        </main>
+        <footer >
+            
+          </footer>
+        </div>
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src='./assets/js/component1.js'></script>
+<script src='./assets/js/component2.js'></script>
+<script src='./assets/js/script.js'></script>
+</body>
+</html>

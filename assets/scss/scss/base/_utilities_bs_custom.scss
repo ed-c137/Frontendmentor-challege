@@ -1,0 +1,26 @@
+$utilities: ()!default;
+
+$utilities: map-merge(
+$utilities,
+(
+    "cursor": (
+        property: cursor,
+        class: cursor,
+        responsive: true,
+        values: auto pointer grab,
+    ),
+    "shadow": (
+    property: box-shadow,
+    class: shadow,
+    values: (
+        none: none,
+        ring: $shadow-ring,
+        sm: $shadow-sm,
+        md: $shadow-md,
+        lg: $shadow-lg,
+        xl: $shadow-xl,
+        inner-glow:$shadow-inner-glow,
+        glow-top: $shadow-glow-top
+    )
+    ),
+));

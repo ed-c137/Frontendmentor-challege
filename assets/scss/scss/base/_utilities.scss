@@ -1,0 +1,197 @@
+//Generate colors from 10 to 100 like orange-10, orange-20
+// $allcolors: (
+//     "orange":    orange,
+//     "green":   green,
+// );
+// @each $color-name, $color in $allcolors {
+//     @for $i from 10 through 100 {
+//         @if $i % 10 == 0 {
+//           $percentage: $i*1%;
+//           @if $i < 50{
+//             $k : 50 - $i;//change the first value to lighten the whites i.e between 50 to 80
+//             $kper : $k * 1%;
+//             .#{$color-name}-#{$i} {
+//                  background-color: mix(white, $color, $kper);
+//             } 
+//         } @else if $i == 50{
+//             .#{$color-name}-#{$i} {
+//                 background-color: $color;
+//             }
+//         }@else if $i > 50{
+//           $b : $i - 35;//change the second value to darken the blacks i.e between 20 to 50
+//           $bper : $b * 1%;
+//             .#{$color-name}-#{$i} {
+//               background-color: mix(black, $color, $bper);
+//             }
+    
+//             }
+//         }
+//       }
+// }
+
+
+
+    
+.clearfix{
+    &::after {
+        display: block;
+        clear: both;
+        content: "";
+    }
+}
+.flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ //padding between horizontal items only
+ .pad-item-l1{
+    >*:not(:first-child){
+        padding-left: 5px;
+    }
+ }
+ .pad-item-l2{
+    >*:not(:first-child){
+        padding-left: 10px;
+    }
+ }
+ .pad-item-r1{
+    >*:not(:last-child){
+        padding-right: 5px;
+    }
+ }
+ .pad-item-r2{
+    >*:not(:last-child){
+        padding-right: 10px;
+    }
+ }
+
+ .mar-item-l1{
+    >*:not(:first-child){
+        margin-left: 5px;
+    }
+ }
+ .mar-item-l2{
+    >*:not(:first-child){
+        margin-left: 10px;
+    }
+ }
+ .mar-item-r1{
+    >*:not(:last-child){
+        margin-right: 5px;
+    }
+ }
+ .mar-item-r2{
+    >*:not(:last-child){
+        margin-right: 10px;
+    }
+ }
+
+ .img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .img-fit-cover{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+////////////////////===========WEBSITE CUSTOM=================////////////////////
+ .accent-color{
+  color: v(color-primary);
+ }
+ .accent-color-dark{
+  color: v(color-secondary);
+ }
+
+.shadow-xs	{
+    box-shadow: var(--shadow-xs);
+}
+.shadow-sm{
+    box-shadow: var(--shadow-sm);
+}	
+.shadow-md{
+    box-shadow: var(--shadow-md);
+}	
+.shadow-lg{
+    box-shadow: var(--shadow-lg);
+}
+.shadow-xl{
+    box-shadow: var(--shadow-xl);
+}	
+.shadow-none{
+    box-shadow: none;
+}	
+
+
+
+ .ratio {
+    position: relative;
+    width: 100%;
+  }
+  .ratio::before {
+    display: block;
+    padding-top: var(--bs-aspect-ratio);
+    content: "";
+  }
+  .ratio > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .ratio-1x1 {
+    --bs-aspect-ratio: 100%;
+  }
+  
+  .ratio-4x3 {
+    --bs-aspect-ratio: 75%;
+  }
+  
+  .ratio-16x9 {
+    --bs-aspect-ratio: 56.25%;
+  }
+  
+  .ratio-21x9 {
+    --bs-aspect-ratio: 42.8571428571%;
+  }
+ 
+ .logo-icon{
+    width: 18px;
+    height: 18px;
+ }
+
+ .muted{
+    color: v(text-muted);
+ }
+
+ .contrast-color-ondk{
+  color: v(light);
+ }
+
+ .contrast-color-onwht{
+  color: v(dark);
+ }
+
+
+
+ .image-asbg{
+  @include cover-background;
+  height: 100%;
+  width: 100%;
+ }
+
+ .imgcover{
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+ }
+
+ .no-scroll{
+    overflow: hidden !important;
+ }
