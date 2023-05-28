@@ -12,6 +12,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
 @font-face {
   font-family: "HG Bold";
   src: url("../fonts/fonts-section1/static/HankenGrotesk-Bold.ttf") format("truetype"); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
@@ -8477,4 +8479,448 @@ section {
   .testimonial-slider .unsplash-byline p {
     display: inline;
   }
+}
+
+#component-16 {
+  /** Media Queries **/
+}
+#component-16 .content {
+  background-color: hsl(0, 0%, 98%);
+  font-family: "Poppins", sans-serif;
+}
+#component-16 main {
+  display: flex;
+  flex-direction: column;
+}
+#component-16 header {
+  text-align: center;
+  color: hsl(234, 12%, 34%);
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 5.3rem;
+  line-height: 3rem;
+  text-align: center;
+  justify-content: center;
+}
+#component-16 .top-header h1 {
+  font-weight: 600;
+  font-size: 2.3rem;
+}
+#component-16 .top-header h1 span {
+  font-weight: 200;
+}
+#component-16 .top-header p {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 1.3rem;
+  width: 40%;
+  color: hsl(229, 6%, 66%);
+  line-height: 1.5rem;
+  word-spacing: -1px;
+  font-weight: 400;
+}
+#component-16 .feature-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  -moz-column-gap: 30px;
+       column-gap: 30px;
+  max-width: 69.375rem;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 3.8rem;
+}
+#component-16 .feature-cards .card {
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0px 12px 14px -10px hsla(212, 86%, 64%, 0.301);
+}
+#component-16 .card-desc {
+  padding: 1.7rem 2.3rem;
+}
+#component-16 .card-desc h2 {
+  font-size: 1.2rem;
+  color: hsl(234, 12%, 34%);
+}
+#component-16 .card-desc p {
+  color: hsl(229, 6%, 66%);
+  font-size: 13px;
+  line-height: 1.5rem;
+  padding-top: 9px;
+}
+#component-16 svg {
+  position: static;
+  height: 4rem;
+  margin-left: 73%;
+  margin-top: 3%;
+  width: 4rem;
+}
+#component-16 .card {
+  border-top-style: solid;
+  border-top-width: 5px;
+  max-width: 350px;
+  width: 100%;
+  min-height: 15rem;
+  height: 30%;
+}
+#component-16 .supervisor {
+  border-color: hsl(180, 62%, 55%);
+  place-self: center;
+}
+#component-16 .teambuilder {
+  border-color: hsl(0, 78%, 62%);
+}
+#component-16 .karma {
+  border-color: hsl(34, 97%, 64%);
+}
+#component-16 .calculator {
+  border-color: hsl(212, 86%, 64%);
+  place-self: center;
+}
+#component-16 .grid-middle-wrap {
+  place-self: center;
+}
+#component-16 .grid-middle-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+}
+
+#component-17 {
+  /* Primary color */
+  --Marine-blue: hsl(213, 96%, 18%);
+  --Purplish-blue: hsl(243, 100%, 62%);
+  --Pastel-blue: hsl(228, 100%, 84%);
+  --Light-blue: hsl(206, 94%, 87%);
+  --Strawberry-red: hsl(354, 84%, 57%);
+  /* Neutral color */
+  --Cool-gray: hsl(231, 11%, 63%);
+  --Light-gray: hsl(229, 24%, 87%);
+  --Magnolia: hsl(217, 100%, 97%);
+  --Alabaster: hsl(231, 100%, 99%);
+  --White: hsl(0, 0%, 100%);
+  /* ============================== */
+  /* REUSABLE CSS CLASSES */
+  /* ============================== */
+  /* HIDE STEP */
+  /* SHOW ACTIVE STEP */
+  /* checkbox */
+}
+#component-17 .content {
+  text-rendering: optimizeSpeed;
+  font-size: 1.6rem;
+  position: relative;
+  font-family: "Ubuntu", sans-serif;
+  padding: 0;
+  font-size: 16px;
+}
+#component-17 .step {
+  display: none;
+}
+#component-17 .step.active {
+  display: block;
+}
+#component-17 .step-box-wrapper .step-container-box {
+  width: 100%;
+  display: grid;
+  background-color: var(--White);
+  grid-template-columns: auto;
+  grid-template-rows: 290px auto;
+}
+#component-17 .step-box-wrapper .step-container-box .left-section {
+  width: 100%;
+  grid-column: 1/-1;
+  grid-row: 1/2;
+  background: url("../../../assets/img/section17/bg-sidebar-mobile.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+#component-17 .step-box-wrapper .step-container-box .left-section .step-indicator-wrap {
+  position: relative;
+  top: 3rem;
+}
+#component-17 .step-box-wrapper .step-container-box .left-section .step-indicator-wrap .step-indicator-item .num {
+  border: 1px solid var(--Light-gray);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--Light-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-right: 15px;
+}
+#component-17 .step-box-wrapper .step-container-box .left-section .step-indicator-wrap .step-indicator-item .text {
+  display: none;
+}
+#component-17 .step-box-wrapper .step-container-box .left-section .step-indicator-wrap .step-indicator-item .text .numtitle {
+  color: var(--Light-gray);
+  font-size: 1.4rem;
+  font-weight: 400;
+  padding-bottom: 2px;
+}
+#component-17 .step-box-wrapper .step-container-box .left-section .step-indicator-wrap .step-indicator-item .text .sectitle {
+  color: var(--White);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+#component-17 .step-box-wrapper .step-container-box .left-section .step-indicator-wrap .step-indicator-item.active .num {
+  background-color: var(--Light-blue);
+  color: var(--Marine-blue);
+}
+#component-17 .step-box-wrapper .step-container-box .steps-container {
+  grid-column: 1/-1;
+  grid-row: 2/3;
+  background-color: var(--White);
+  background-color: var(--Magnolia);
+  margin: 0 auto;
+  position: relative;
+}
+#component-17 .step-box-wrapper .step-container-box .steps-container .button__container {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0px;
+  right: 0;
+  background-color: var(--White);
+  width: 100%;
+  padding: 15px 10px;
+}
+#component-17 .step-box-wrapper .step-container-box .steps-container .button__container .button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 10px 15px;
+  border-radius: 5px;
+  visibility: hidden;
+}
+#component-17 .step-box-wrapper .step-container-box .steps-container .button__container .button.active {
+  visibility: visible;
+}
+#component-17 .step-box-wrapper .step-container-box .steps-container .button__container .next__button {
+  color: var(--Light-gray);
+  background-color: var(--Marine-blue);
+}
+#component-17 .step-box-wrapper .step-container-box .steps-container .button__container .next__button:hover {
+  transition: background 0.3s;
+  background-color: var(--Purplish-blue);
+}
+#component-17 .step-box-wrapper .step-container-box .steps-container .button__container .prev__button {
+  color: var(--Cool-gray);
+  background-color: var(--White);
+  padding: 0;
+}
+#component-17 .step-box-wrapper .step-container-box .steps-container .button__container .prev__button:hover {
+  color: var(--Marine-blue);
+}
+#component-17 .step-box-wrapper .step-container-box .steps-container .button__container.hidden {
+  display: none;
+}
+#component-17 .step {
+  width: 95%;
+  background-color: var(--White);
+  border-radius: 10px;
+  padding: 20px 1.6rem;
+  margin: 0 auto;
+  top: -10rem;
+  position: relative;
+  font-size: 1rem;
+}
+#component-17 .step .main-title {
+  font-size: 1.6em;
+  font-weight: 700;
+  color: var(--Marine-blue);
+  padding-bottom: 5px;
+}
+#component-17 .step .description {
+  color: var(--Cool-gray);
+  font-size: 1.1em;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+#component-17 .step .input {
+  padding: 0.5rem;
+  border: 1px solid var(--Cool-gray);
+  border-radius: 5px;
+  width: 100%;
+  font-weight: 400;
+  color: var(--Marine-blue);
+  font-size: 1em;
+}
+#component-17 .step .input:focus-visible {
+  border-color: var(--Cool-gray) !important;
+  transition: 0.25s;
+}
+#component-17 .step .input:hover {
+  border-color: var(--Pastel-blue) !important;
+  transition: 0.25s;
+}
+#component-17 .step .input.error,
+#component-17 .step .input.error:hover {
+  border-color: var(--Strawberry-red);
+  transition: 0.25s;
+}
+#component-17 .form-content-wrap .form-item {
+  margin-bottom: 1rem;
+}
+#component-17 .card {
+  border: 2px solid var(--Light-gray);
+  border-radius: 10px;
+  padding: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+  padding: 10px;
+}
+#component-17 .card:hover {
+  border-color: var(--Pastel-blue);
+}
+#component-17 .card__name {
+  color: var(--Marine-blue);
+  font-weight: 700;
+  text-transform: capitalize;
+  font-size: 1.8rem;
+  margin-bottom: 2px;
+}
+#component-17 .card__price {
+  color: var(--Cool-gray);
+  font-weight: 400;
+}
+#component-17 .card__description {
+  color: var(--Cool-gray);
+  font-weight: 400;
+}
+#component-17 .card__img {
+  margin: auto;
+  width: 45px;
+  height: 45px;
+  margin-right: 20px;
+  margin-left: 0;
+}
+#component-17 .card.selected {
+  background-color: var(--Alabaster);
+  border-color: var(--Purplish-blue);
+}
+#component-17 .addon__card {
+  min-height: 90px;
+}
+#component-17 .addon__card .card__description {
+  font-size: 0.96em;
+}
+#component-17 .addon__card .card__name {
+  font-size: 1.2em;
+}
+#component-17 .plan-switch {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: auto;
+  padding: 1.4rem 1rem;
+  background: var(--Alabaster);
+  border-radius: 10px;
+}
+#component-17 .plan-switch .plan-label {
+  font-size: 1rem;
+  color: #333;
+}
+#component-17 .plan-switch .plan-label.active {
+  color: var(--Marine-blue);
+}
+#component-17 .plan-switch .monthly {
+  margin-left: auto;
+  margin-right: 5px;
+}
+#component-17 .plan-switch .yearly {
+  margin-right: auto;
+  margin-left: 5px;
+}
+#component-17 .plan-switch .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 22px;
+}
+#component-17 .plan-switch .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+#component-17 .plan-switch .switch label {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--Marine-blue);
+  transition: 0.4s;
+  border-radius: 34px;
+}
+#component-17 .plan-switch .switch label::before {
+  position: absolute;
+  content: "";
+  height: 17px;
+  width: 17px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+#component-17 .plan-switch .switch input:checked + label:before {
+  transform: translateX(37px);
+}
+#component-17 .yearly__benefit {
+  color: var(--Marine-blue);
+  font-size: 1em;
+  font-weight: 400;
+  padding-top: 5px;
+  display: none;
+}
+#component-17 .yearly__benefit.show {
+  display: inline-block;
+}
+#component-17 .addon__card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+#component-17 .checkbox[type=checkbox] {
+  margin-right: 20px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: none;
+  font: inherit;
+  color: none;
+  width: 1.2em;
+  height: 1.2em;
+  border: 0.15em solid var(--Light-gray);
+  cursor: pointer;
+  border-radius: 0.2em;
+  transform: translateY(-0.075em);
+  /*center*/
+  display: grid;
+  place-content: center;
+}
+#component-17 .checkbox[type=checkbox]:checked {
+  border-color: var(--Purplish-blue);
+  background-color: var(--Purplish-blue);
+}
+#component-17 .checkbox[type=checkbox]::before {
+  content: "";
+  width: 1em;
+  height: 1em;
+  box-shadow: inset 1em 1em var(--White);
+  transform-origin: bottom left;
+  -webkit-clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  transition: 120ms transform ease-in-out;
+  transform: scale(0);
+}
+#component-17 .checkbox[type=checkbox]:checked::before {
+  transform: scale(1);
 }/*# sourceMappingURL=style.css.map */
