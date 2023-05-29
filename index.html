@@ -386,7 +386,7 @@
                     </div>
                 </div>
                </section>
-               <section id="component-8" class="grid-container">
+               <section id="component-8" class="grid-container d-none">
                 <div class="header text-center">
                     <h1>8. Article Preview Component</h1>
                     <p>A simple box with left and right section. Both flex and grid can be used</p>
@@ -1064,28 +1064,28 @@
                                 
                                   <div class="left-section">
                                     <div class="step-indicator-wrap flex-center">
-                                        <div class="step-indicator-item active">
+                                        <div class="step-indicator-item" :class="{ 'active': step === 1 }">
                                           <span class="num one">1</span>
                                           <div class="text">
                                             <p class="numtitle">STEP1</p>
                                             <p class="sectitle">Your Info</p>
                                           </div>
                                         </div>
-                                        <div class="step-indicator-item">
+                                        <div class="step-indicator-item" :class="{ 'active': step === 2 }">
                                           <div class="num">2</div>
                                           <div class="text">
                                             <p class="numtitle">STEP2</p>
                                             <p class="sectitle">Select plan</p>
                                           </div>
                                         </div>
-                                        <div class="step-indicator-item">
+                                        <div class="step-indicator-item" :class="{ 'active': step === 3 }">
                                           <div class="num">3</div>
                                           <div class="text">
                                             <p class="numtitle">STEP3</p>
                                             <p class="sectitle">Add-ons</p>
                                           </div>
                                         </div>
-                                        <div class="step-indicator-item">
+                                        <div class="step-indicator-item" :class="{ 'active': step === 4 }">
                                           <div class="num">4</div>
                                           <div class="text">
                                             <p class="numtitle">STEP4</p>
@@ -1097,7 +1097,7 @@
                         
                                   <div class="steps-container">
                                     <!-- step1 -->
-                                    <form class="step  form" id="form">
+                                    <form class="step form active" v-if="step === 1" id="form">
                                       <h3 class="main-title">Personal info</h3>
                                       <p class="description">
                                         Please provide your name, email address, and phone number.
@@ -1106,125 +1106,115 @@
                                         <div class="form-item">
                                           <div class="label-wrap">
                                             <p class="label">Name</p>
-                                            <p class="warning"></p>
+                                            <p class="warning" v-if="errors.name">{{ errors.name }}</p>
                                           </div>
-                                          <input type="text" name="userName" class="input" placeholder="e.g. Stephen King" required />
+                                          <input type="text" name="userName" class="input" :class="{ error: errors.name }" placeholder="e.g. Stephen King" required v-model="form.name"/>
                                         </div>
                                         <div class="form-item">
                                             <div class="label-wrap">
                                               <p class="label">Email Address</p>
-                                              <p class="warning"></p>
+                                              <p class="warning" v-if="errors.email">{{ errors.email }}</p>
                                             </div>
-                                            <input type="email" name="email" class="input" placeholder="e.g. stephenking@lorem.com" required />
+                                            <input type="email" name="email" class="input" :class="{ error: errors.email }" placeholder="e.g. stephenking@lorem.com" required v-model="form.email"/>
                                           </div>
                                           <div class="form-item">
                                             <div class="label-wrap">
                                               <p class="label">Phone Number</p>
-                                              <p class="warning"></p>
+                                              <p class="warning" v-if="errors.phone">{{ errors.phone }}</p>
                                             </div>
-                                            <input type="number" name="phone" class="input" placeholder="e.g. +1 234 567 890" required />
+                                            <input type="number" name="phone" class="input" :class="{ error: errors.phone }" placeholder="e.g. +1 234 567 890" required v-model="form.phone"/>
                                           </div>
                                       </div>
                                     </form>
                                     <!-- STEP 2 -->
-                                    <div class="form step " id="step-2">
+                                    <div class="form step active" id="step-2" v-if="step === 2">
                                       <h3 class="main-title">Select your plan</h3>
                                       <p class="description">
                                         You have the option of monthly or yearly billing.
                                       </p>
                                       <div class="plan__card_container" id="plan-cards">
-                                        <div class="plan__card card selected">
+                                        <div class="plan__card card" v-for="(plan, index) in plans" :key="index" :class="{ selected: selectedPlanIndex === index }" @click="selectedPlanIndex = index">
+                                          <input type="radio" v-model="selectedPlanIndex" :value="index" hidden>
                                           <div class="card__img">
-                                            <img src="./assets/img/section17/icon-arcade.svg" alt="arcade" />
+                                            <img :src="`./assets/img/section17/${plan.img}.svg`" :alt="plan.name">
                                           </div>
                                           <div class="plan__price">
-                                            <p class="card__name" id="arcade">Arcade</p>
-                                            <p class="card__price">$<span class="sbsprice">00</span>/<span class="sbsduration">xx</span></p>
-                                            <p class="yearly__benefit show">2 months free</p>
+                                            <p class="card__name" id="arcade">{{ plan.name }}</p>
+                                            <p class="card__price">$<span class="sbsprice">{{ isYearly ? plan.pricey : plan.pricem }}</span>/<span class="sbsduration">{{ isYearly ? 'yr' : 'mo' }}</span></p>
+                                            <p class="yearly__benefit" :class="{ show:isYearly }">2 months free</p>
                                           </div>
                                         </div>
-                                        <div class="plan__card card">
-                                          <div class="card__img"><img src="./assets/img/section17/icon-advanced.svg" alt="arcade" /> </div>
-                                          <div class="plan__price">
-                                            <p class="card__name" id="advance">Advance</p>
-                                            <p class="card__price">$<span class="sbsprice">00</span>/<span class="sbsduration">xx</span></p>
-                                            <p class="yearly__benefit">2 months free</p>
-                                          </div>
-                                        </div>
-                                        <div class="plan__card card">
-                                          <div class="card__img">
-                                            <img src="./assets/img/section17/icon-pro.svg" alt="arcade" />
-                                          </div>
-                                          <div class="plan__price"><p class="card__name" id="pro">Pro</p>
-                                            <p class="card__price">$<span class="sbsprice">00</span>/<span class="sbsduration">xx</span></p>
-                                            <p class="yearly__benefit">2 months free</p>
-                                          </div>
-                                        </div>
+
                                       </div>
                                       <p id="select-plan-error"></p>
                                       <div class="plan-switch">
                                         <p class="plan-label monthly active">Monthly</p>
                                         <div class="switch">
-                                          <input type="checkbox" id="toggleSwitch" />
+                                          <input type="checkbox" id="toggleSwitch" v-model="isYearly" />
                                           <label for="toggleSwitch" class="slider"></label>
                                         </div>
                                         <p class="plan-label yearly">Yearly</p>
                                       </div>
                                     </div>
                                     <!-- STEP 3 -->
-                                    <div class="step active" id="step-3">
+                                    <div class="step active" id="step-3" v-if="step === 3">
                                       <h3 class="main-title">Pick add-ons</h3>
                                       <p class="description">
                                         Add-ons help enhance your gaming experience.
                                       </p>
                                       <div class="addson__card_container">
-                                        <div class="addon__card card">
-                                          <input type="checkbox" name="checkbox" id="" class="checkbox" />
-                                          <div class="card__text">
-                                            <p class="card__name">Online service</p>
-                                            <p class="card__description">Access to multiplayer games</p>
-                                          </div>
-                                          <p class="card__price">+$<span class="sbscription__price">00</span>/<span class="sbscription__duration">xx</span></p>
+                                        <div class="addon__card card" 
+                                        v-for="(addon, index) in addOns" 
+                                        :key="index" 
+                                        :class="{'selected': selectedAddons.includes(addon)}">
+                                        
+                                        <input type="checkbox" 
+                                            name="checkbox" 
+                                            v-model="selectedAddons" 
+                                            class="checkbox" 
+                                            :value="addon"/>
+                                            
+                                        <div class="card__text">
+                                            <p class="card__name">{{ addon.name }}</p>
+                                            <p class="card__description">{{ addon.desc }}</p>
                                         </div>
-                                        <div class="addon__card card">
-                                          <input type="checkbox" name="checkbox" id="" class="checkbox" />
-                                          <div class="card__text">
-                                            <p class="card__name">Larger storage</p>
-                                            <p class="card__description">Extra 1TB of cloud save</p>
-                                          </div>
-                                          <p class="card__price">+$<span class="sbscription__price">00</span>/<span class="sbscription__duration">xx</span></p>
-                                        </div>
-                                        <div class="addon__card card">
-                                          <input type="checkbox" name="checkbox" id="" class="checkbox" />
-                                          <div class="card__text">
-                                            <p class="card__name">Customizable Profile</p>
-                                            <p class="card__description">Custom theme on your profile</p>
-                                          </div>
-                                          <p class="card__price">+$<span class="sbscription__price">00</span>/<span class="sbscription__duration">xx</span></p>
-                                        </div>
+                                        
+                                        <p class="card__price">+$<span class="sbscription__price">{{ isYearly ? addon.costy : addon.costm }}</span>/<span class="sbscription__duration">{{ isYearly ? 'yr' : 'mo' }}</span></p>
+                                    </div>                                    
+                                   
                                       </div>
                                     </div>
                                     <!-- STEP 4 -->
-                                    <div class="step" id="step-4">
+                                    <div class="step active" id="step-4" v-if="step === 4">
                                       <h3 class="main-title">Finishing up</h3>
                                       <p class="description">
                                         Double-check everything looks OK before confirming.
                                       </p>
                                       <div class="finishingup__card_container card">
                                         <div class="selected__plan_container">
-                                          <div class="" id="selected-plan"><!-- selected plan --></div>
-                                          <button class="change__plan" id="change-plan">change</button>
+                                          <div class="" id="selected-plan">
+                                            <span class="selectedname">{{ selectedPlan.name }}({{ isYearly ? 'Annually' : 'Monthly' }})</span>
+                                            <span class="slectedprice">
+                                              {{ isYearly ? selectedPlan.pricey : selectedPlan.pricem }}/{{ isYearly ? 'yr' : 'mo' }}
+                                            </span>
+                                          </div>
+                                          <button class="change__plan" id="change-plan" @click="setStepToTwo">change</button>
                                         </div>
+                                        <br />
                                         <ul id="selected-addon">
-                                          <!-- selected adds-on -->
+                                          <li  v-for="(saddOn, index) in selectedAddons" :key="index">
+                                            <span>{{ saddOn.name }}</span>
+                                            <span>{{ isYearly ? saddOn.costy : saddOn.costm }}/{{ isYearly ? 'yr' : 'mo' }}</span>
+                                          </li>
                                         </ul>
                                       </div>
                                       <div class="total" id="total">
-                                        <!-- total amount -->
+                                       <span>Total (Per{{ isYearly ? 'Year' : 'Month' }})</span>
+                                       <span>{{ total }}</span>
                                       </div>
                                     </div>
                                     <!-- last step | thank you -->
-                                    <div class="step last__step" id="thank-you">
+                                    <div class="step last__step active" id="thank-you" v-if="step === 5">
                                       <div class="final__img">
                                         <img src="./assets/img/section17/icon-thank-you.svg" alt="" />
                                       </div>
@@ -1235,16 +1225,15 @@
                                         email us at support@loremgaming.com.
                                       </p>
                                     </div>
-                                    <!-- -------------- -->
-                                    <!-- BUTTON -->
-                                    <!-- -------------- -->
-                                    <div class="button__container">
-                                      <button class="button prev__button" id="prev-button">
+                                    
+                                    <div class="button__container" v-if="step !== 5">
+                                      <button class="button prev__button" id="prev-button" @click="previous" :class="{ 'invisible': step === 1 }">
                                         Go Back
                                       </button>
-                                      <button type="submit" class="button next__button active" id="next-button">
+                                      <button type="submit" class="button next__button" id="next-button" @click="next" v-if="step !== 4">
                                         Next Step
                                       </button>
+                                      <button class="button next__button" @click="submit" v-show="step === 4">Submit</button>
                                     </div>
                                   </div>
                                 </div>
@@ -1287,6 +1276,7 @@
         </div>
 <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vee-validate/4.9.5/vee-validate.min.js" integrity="sha512-IjH85psXedSAQYons/+dHF60odnu32H+SPqr/xUVODbwJ+cdfiIzNhAahyuu5m4Oo18qcmmgcnwv3A1SyBRh8Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src='./assets/js/component1.js'></script>
 <script src='./assets/js/component2.js'></script>
 <script src='./assets/js/script.js'></script>

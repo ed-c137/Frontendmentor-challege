@@ -8492,7 +8492,7 @@ section {
   display: flex;
   flex-direction: column;
 }
-#component-16 header {
+#component-16 .top-header {
   text-align: center;
   color: hsl(234, 12%, 34%);
   width: 100%;
@@ -8519,6 +8519,18 @@ section {
   word-spacing: -1px;
   font-weight: 400;
 }
+@media (max-width: 767.98px) {
+  #component-16 .top-header {
+    margin-top: 1rem;
+    line-height: 1.2;
+  }
+  #component-16 .top-header h1 {
+    font-size: 1.8rem;
+  }
+  #component-16 .top-header p {
+    width: 80%;
+  }
+}
 #component-16 .feature-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -8534,6 +8546,20 @@ section {
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
   box-shadow: 0px 12px 14px -10px hsla(212, 86%, 64%, 0.301);
+}
+@media (max-width: 767.98px) {
+  #component-16 .feature-cards {
+    grid-template-columns: auto;
+  }
+  #component-16 .feature-cards .supervisor {
+    margin-bottom: 1.5rem;
+  }
+  #component-16 .feature-cards .grid-middle-wrap {
+    gap: 1.5rem;
+  }
+  #component-16 .feature-cards .karma {
+    margin-bottom: 1.5rem;
+  }
 }
 #component-16 .card-desc {
   padding: 1.7rem 2.3rem;
@@ -8605,6 +8631,27 @@ section {
   /* HIDE STEP */
   /* SHOW ACTIVE STEP */
   /* checkbox */
+  /* ============================== */
+  /* MAIN */
+  /* ============================== */
+  /* ============================== */
+  /* STEP CONTAINER  */
+  /* ============================== */
+  /* ============================== */
+  /*  PLAN STEPS */
+  /* ============================== */
+  /* personal info | step1 */
+  /* form input list */
+  /* select your plan | step2 */
+  /* select plan warning */
+  /* ============================== */
+  /* BUTTONS */
+  /* ============================== */
+  /* STEP3 | ADDS-ON */
+  /* checbox hover only for big screen */
+  /* checkbox checked */
+  /* card title */
+  /* step 4 */
 }
 #component-17 .content {
   text-rendering: optimizeSpeed;
@@ -8614,11 +8661,38 @@ section {
   padding: 0;
   font-size: 16px;
 }
+@media (min-width: 768px) {
+  #component-17 .content {
+    background-color: var(--Magnolia);
+  }
+}
 #component-17 .step {
   display: none;
 }
 #component-17 .step.active {
   display: block;
+}
+#component-17 .invisible {
+  visibility: hidden;
+}
+#component-17 #select-plan-error {
+  color: var(--Strawberry-red);
+  font-weight: 700;
+  text-align: center;
+  height: 20px;
+  margin-bottom: 5px;
+}
+#component-17 .plan__card_container {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+  min-height: 330px;
+}
+#component-17 .plan__card_container .plan__card {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 20px;
 }
 #component-17 .step-box-wrapper .step-container-box {
   width: 100%;
@@ -8628,9 +8702,9 @@ section {
   grid-template-rows: 290px auto;
 }
 #component-17 .step-box-wrapper .step-container-box .left-section {
-  width: 100%;
   grid-column: 1/-1;
   grid-row: 1/2;
+  width: 100%;
   background: url("../../../assets/img/section17/bg-sidebar-mobile.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -8696,7 +8770,6 @@ section {
   font-weight: 500;
   padding: 10px 15px;
   border-radius: 5px;
-  visibility: hidden;
 }
 #component-17 .step-box-wrapper .step-container-box .steps-container .button__container .button.active {
   visibility: visible;
@@ -8717,8 +8790,65 @@ section {
 #component-17 .step-box-wrapper .step-container-box .steps-container .button__container .prev__button:hover {
   color: var(--Marine-blue);
 }
+@media (min-width: 768px) {
+  #component-17 .step-box-wrapper .step-container-box .steps-container .button__container {
+    bottom: initial;
+    top: 0px;
+    right: 0;
+    position: relative;
+  }
+}
 #component-17 .step-box-wrapper .step-container-box .steps-container .button__container.hidden {
   display: none;
+}
+@media (min-width: 768px) {
+  #component-17 .step-box-wrapper .step-container-box {
+    grid-template-columns: 290px auto;
+    grid-template-rows: auto;
+    width: 55%;
+    margin: auto;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 1rem;
+  }
+  #component-17 .step-box-wrapper .step-container-box .left-section {
+    grid-column: 1/1;
+    grid-row: 1/-1;
+    border-radius: 20px;
+    background-image: url("../../../assets/img/section17/bg-sidebar-desktop.svg");
+  }
+  #component-17 .step-box-wrapper .step-container-box .left-section .step-indicator-wrap {
+    flex-direction: column;
+    align-items: self-start;
+  }
+  #component-17 .step-box-wrapper .step-container-box .left-section .step-indicator-wrap .step-indicator-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 2rem;
+  }
+  #component-17 .step-box-wrapper .step-container-box .left-section .step-indicator-wrap .step-indicator-item .text {
+    display: block;
+  }
+  #component-17 .step-box-wrapper .step-container-box .left-section .step-indicator-wrap .step-indicator-item .text .numtitle {
+    font-size: 1rem;
+  }
+  #component-17 .step-box-wrapper .step-container-box .left-section .step-indicator-wrap .step-indicator-item .text .sectitle {
+    font-size: 1.1rem;
+  }
+  #component-17 .step-box-wrapper .step-container-box .left-section .step-indicator-wrap .step-indicator-item:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+  #component-17 .step-box-wrapper .step-container-box .steps-container {
+    grid-column: 2/-1;
+    grid-row: 1/-1;
+  }
+}
+@media (min-width: 768px) {
+  #component-17 .step-box-wrapper {
+    display: flex;
+    height: 100%;
+  }
 }
 #component-17 .step {
   width: 95%;
@@ -8764,8 +8894,24 @@ section {
   border-color: var(--Strawberry-red);
   transition: 0.25s;
 }
+@media (min-width: 768px) {
+  #component-17 .step {
+    top: 0rem;
+    width: 100%;
+    border-radius: 0;
+  }
+}
 #component-17 .form-content-wrap .form-item {
   margin-bottom: 1rem;
+}
+#component-17 .form-content-wrap .form-item .label-wrap .warning {
+  font-size: 0.8em;
+  color: var(--Strawberry-red);
+}
+@media (min-width: 768px) {
+  #component-17 .form {
+    padding-bottom: 5rem;
+  }
 }
 #component-17 .card {
   border: 2px solid var(--Light-gray);
@@ -8923,4 +9069,108 @@ section {
 }
 #component-17 .checkbox[type=checkbox]:checked::before {
   transform: scale(1);
+}
+@media (min-width: 768px) {
+  #component-17 .checkbox[type=checkbox]:hover {
+    border-color: var(--Marine-blue);
+    transition: 0.25s;
+  }
+}
+#component-17 .last__step {
+  text-align: center;
+  padding-bottom: 4rem;
+}
+#component-17 .last__step .main__title {
+  padding-bottom: 10px;
+}
+#component-17 .last__step .description {
+  max-width: 500px;
+  margin: 0 auto;
+}
+#component-17 .last__step .final__img {
+  width: 100px;
+  height: 100px;
+  margin-top: 20%;
+  margin-inline: auto;
+  margin-bottom: 35px;
+}
+#component-17 .card__text {
+  margin-right: auto;
+}
+#component-17 .finishingup__card_container {
+  background-color: var(--Magnolia);
+  border: none;
+  padding: 10px 20px;
+  cursor: auto;
+}
+#component-17 .finishingup__card_container .selected__plan_container {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+#component-17 .finishingup__card_container .selected__plan_container #selected-plan {
+  display: flex;
+  align-items: center;
+  color: var(--Marine-blue);
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  font-weight: 700;
+  padding-bottom: 5px;
+  justify-content: space-between;
+}
+#component-17 .finishingup__card_container .selected__plan_container #selected-plan > p:nth-child(3) {
+  margin-left: auto;
+}
+#component-17 .finishingup__card_container .selected__plan_container #selected-plan > p:nth-child(2) {
+  margin-left: 4px;
+}
+#component-17 .finishingup__card_container .selected__plan_container .change__plan {
+  border: none;
+  background-color: transparent;
+  font-size: 1.2rem;
+  color: var(--Cool-gray);
+  text-decoration: underline;
+  cursor: pointer;
+  text-transform: capitalize;
+  transition: 0.25s;
+}
+#component-17 .finishingup__card_container .selected__plan_container .change__plan:hover {
+  color: var(--Purplish-blue);
+}
+#component-17 .finishingup__card_container #selected-addon li {
+  display: flex;
+  align-self: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+#component-17 .finishingup__card_container #selected-addon li:nth-child(1) {
+  border-top: 1px solid var(--Cool-gray);
+  padding-top: 25px;
+}
+#component-17 .finishingup__card_container #selected-addon li > span:nth-child(1) {
+  color: var(--Cool-gray);
+}
+#component-17 .finishingup__card_container #selected-addon li > span:nth-child(2) {
+  color: var(--Marine-blue);
+}
+#component-17 #total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 20px;
+}
+#component-17 #total > span:nth-child(1) {
+  color: var(--Cool-gray);
+  font-size: 1.2rem;
+}
+#component-17 #total > span:nth-child(2) {
+  color: var(--Purplish-blue);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+@media (min-width: 768px) {
+  #component-17 #total > span:nth-child(2) {
+    font-size: 1.5rem;
+  }
 }/*# sourceMappingURL=style.css.map */

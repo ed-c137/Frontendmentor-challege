@@ -454,7 +454,8 @@ main {
   flex-direction: column;
 }
 
-header {
+
+.top-header{
   text-align: center;
   color: $dark-blue;
   width: 100%;
@@ -463,9 +464,6 @@ header {
   line-height: 3rem;
   text-align: center;
   justify-content: center;
-}
-
-.top-header{
 
     h1 {
       font-weight: 600;
@@ -484,6 +482,17 @@ header {
       word-spacing: -1px;
       font-weight: 400;
     }
+
+    @include media-breakpoint-down(md){
+      margin-top: 1rem;
+      line-height: 1.2;
+      h1{
+        font-size: 1.8rem;
+      }
+      p{
+        width: 80%;
+      }
+    }
 }
 
 
@@ -500,6 +509,20 @@ header {
     background-color: $white;
     border-radius: 10px;
     box-shadow: $box-shadow;
+  }
+
+  @include media-breakpoint-down(md){
+    grid-template-columns: auto;
+    .supervisor{
+      margin-bottom: 1.5rem;
+    }
+    .grid-middle-wrap{
+      gap: 1.5rem;
+    }
+
+    .karma{
+      margin-bottom: 1.5rem;
+    }
   }
 }
 
@@ -592,11 +615,13 @@ svg {
   .content {
     text-rendering: optimizeSpeed;
     font-size: 1.6rem;
-    // background-color: var(--Magnolia);//only on desktop
     position: relative;
     font-family: 'Ubuntu', sans-serif;
     padding: 0;
     font-size: 16px;
+    @include media-breakpoint-up(md){
+      background-color: var(--Magnolia);//only on desktop
+    }
   }
   
 
@@ -613,7 +638,32 @@ svg {
   .step.active {
     display: block;
   }
+
+  .invisible {
+    visibility: hidden;
+  }
   
+  
+  #select-plan-error {
+    color: var(--Strawberry-red);
+    font-weight: 700;
+    text-align: center;
+    height: 20px;
+    margin-bottom: 5px;
+  }
+  
+  .plan__card_container {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+    min-height: 330px;
+    .plan__card {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+  }
 
   .step-box-wrapper{
     .step-container-box{
@@ -628,9 +678,9 @@ svg {
       // min-height: 600px;
       // padding: 15px;
       .left-section{
-        width: 100%;
         grid-column: 1 / -1;
         grid-row: 1 / 2;
+        width: 100%;
         background: url('../../../assets/img/section17/bg-sidebar-mobile.svg');
         background-repeat: no-repeat;
         background-position: center;
@@ -703,7 +753,7 @@ svg {
             font-weight: 500;
             padding: 10px 15px;
             border-radius: 5px;
-            visibility: hidden;
+            // visibility: hidden;
           }
           .button.active{
             visibility:visible;
@@ -728,6 +778,11 @@ svg {
             // display: flex;
             // justify-content: space-between;
             // align-items: center;
+            bottom: initial;
+            top: 0px;
+            right: 0;
+            position: relative;
+            // transform: translateY(-100%);
           }
         }
         
@@ -735,6 +790,54 @@ svg {
           display: none;
         }
       }
+
+      @include media-breakpoint-up(md){
+        grid-template-columns: 290px auto;
+        grid-template-rows: auto;
+        width: 55%;
+        margin: auto;
+        border-radius: 20px;
+        overflow: hidden;
+        padding: 1rem;
+        .left-section{
+          grid-column: 1 / 1;
+          grid-row: 1 / -1;
+          border-radius: 20px;
+          background-image: url('../../../assets/img/section17/bg-sidebar-desktop.svg');
+  
+          .step-indicator-wrap{
+            flex-direction: column;
+            align-items: self-start;
+            .step-indicator-item{
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin-left: 2rem;
+            .text{
+              display: block;
+              .numtitle{
+                font-size: 1rem;
+              }
+              .sectitle{
+                font-size: 1.1rem;
+              }
+            }
+            &:not(:last-child){
+              margin-bottom: 1rem;
+            }
+          }
+          
+          }
+        }
+        .steps-container{
+          grid-column: 2 / -1;
+          grid-row: 1 / -1;
+        }
+      }
+    }
+    @include media-breakpoint-up(md){
+      display: flex;
+      height: 100%;
     }
   }
 
@@ -784,16 +887,31 @@ svg {
     border-color: var(--Strawberry-red);
     transition: 0.25s;
   }
+
+  @include media-breakpoint-up(md){
+    top: 0rem;
+    width: 100%;
+    border-radius: 0;
+  }
  
   }
 
   .form-content-wrap{
     .form-item{
       margin-bottom: 1rem;
+      .label-wrap{
+        .warning{
+          font-size: .8em;
+          color: var(--Strawberry-red);
+        }
+      }
     }
   }
 
-  #step-2{
+  .form{
+    @include media-breakpoint-up(md){
+      padding-bottom: 5rem;
+    }
   }
   .plan__card_container{
   }
@@ -984,4 +1102,361 @@ svg {
   .checkbox[type='checkbox']:checked::before {
     transform: scale(1);
   }
+
+  @include media-breakpoint-up(md){
+    .checkbox[type='checkbox']:hover {
+      border-color: var(--Marine-blue);
+      transition: 0.25s;
+    }
+  }
+
+
+
+
+  .last__step {
+    // min-height: 100%;
+    text-align: center;
+    padding-bottom: 4rem;
+    .main__title {
+      padding-bottom: 10px;
+    }
+    .description {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .final__img {
+      width: 100px;
+      height: 100px;
+      margin-top: 20%;
+      margin-inline: auto;
+      margin-bottom: 35px;
+    }
+  }
+
+
+  /* ============================== */
+  /* MAIN */
+  /* ============================== */
+  .main {
+    // max-width: 1050px;
+    // min-height: 100vh;
+    // width: 100%;
+    // margin: 0 auto;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    // background-color: var(--Magnolia);
+    // place-self: center;
+  }
+  
+  // @media (max-width: 768px) {
+  //   .main {
+  //     align-items: flex-start;
+  //   }
+  // }
+  /* ============================== */
+  /* STEP CONTAINER  */
+  /* ============================== */
+
+  
+  // @media (min-width: 920px) {
+  //   .step__container {
+  //     gap: 100px;
+  //   }
+  // }
+  
+  // @media (max-width: 768px) {
+  //   .step__container {
+  //     min-height: 100%;
+  //     display: flex;
+  //     flex-direction: column;
+  //     gap: 0;
+  //     padding: 0;
+  //     padding-bottom: 90px;
+  //     background-color: var(--Magnolia);
+  //   }
+  // }
+  
+  
+  // /* ACTIVE STEP NUMBER */
+  // .indecater__num.active {
+  //   background-color: var(--Light-blue);
+  //   color: var(--Marine-blue);
+  // }
+  
+  // @media (max-width: 768px) {
+  //   .sidebar {
+  //     border-radius: 0;
+  //     background-image: url('./assets/images/bg-sidebar-mobile.svg');
+  //     display: flex;
+  //     align-items: flex-start;
+  //     justify-content: center;
+  //     height: 190px;
+  //   }
+  
+  //   .step__indecater {
+  //     padding: 0;
+  //   }
+  
+  //   .step__indecater > .indecater__text {
+  //     display: none;
+  //   }
+  
+  // }
+  /* ============================== */
+  /*  PLAN STEPS */
+  /* ============================== */
+  
+  .steps__container {
+    // grid-column-start: 2;
+    // grid-column-end: 3;
+    // padding-top: 25px;
+    // padding-right: 25px;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: space-between;
+  }
+  
+  @media (max-width: 768px) {
+    // .steps__container {
+    //   padding: 0;
+    //   align-items: center;
+    // }
+    // .step {
+    //   width: 95%;
+    //   background-color: var(--White);
+    //   margin-top: -70px;
+    //   border-radius: 10px;
+    //   padding: 20px 15px;
+    // }
+  }
+  
+  /* personal info | step1 */
+  
+  /* form input list */
+  // .list {
+  //   display: flex;
+  //   flex-direction: column;
+  // }
+  
+  // /* form input list item */
+  // .list__item {
+  //   margin-bottom: 25px;
+  //   display: flex;
+  //   flex-direction: column;
+  // }
+  
+  // /* input label div for label and waring*/
+  // .input__labe {
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: space-between;
+  //   padding-bottom: 5px;
+  // }
+  
+  // /* label text */
+  // .label {
+  //   color: var(--Marine-blue);
+  //   font-weight: 500;
+  // }
+  
+  // /* input warning */
+  // .warning {
+  //   color: var(--Strawberry-red);
+  //   font-weight: 500;
+  // }
+  
+
+  
+  /* select your plan | step2 */
+  
+  /* select plan warning */
+ 
+  
+  
+  // .plan__card > 
+  
+  // .toggle__container {
+  //   border-radius: 5px;
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  //   height: 50px;
+  //   background-color: var(--Magnolia);
+  //   font-weight: 700;
+  //   margin-bottom: 10px;
+  // }
+  
+  // .toggle__container > p {
+  //   color: var(--Marine-blue);
+  //   font-weight: 500;
+  // }
+  
+  // .toggle {
+  //   width: 40px;
+  //   height: 20px;
+  //   border-radius: 15px;
+  //   margin: 5px 0;
+  //   background-color: var(--Marine-blue);
+  //   display: flex;
+  //   align-items: center;
+  //   margin: 0 12px;
+  //   transition: 0.25s;
+  //   cursor: pointer;
+  // }
+  
+  // .toggle__circle {
+  //   width: 15px;
+  //   height: 15px;
+  //   border-radius: 50%;
+  //   margin: 0 2px;
+  //   background-color: var(--White);
+  // }
+  
+  
+  
+  // /* add functionality to toggle */
+  // .toggle.active {
+  //   justify-content: flex-end;
+  // }
+  // .monthly__plan {
+  //   opacity: 0.5;
+  // }
+  // .yearly__plan {
+  //   opacity: 0.5;
+  // }
+  // .selected__plan {
+  //   opacity: 1;
+  // }
+  
+  // @media (min-width: 850px) {
+  //   .plan__card_container {
+  //     display: grid;
+  //     gap: 20px;
+  //     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  //     padding-bottom: 35px;
+  //   }
+  //   .plan__card {
+  //     height: 190px;
+  //     display: flex;
+  //     flex-direction: column;
+  //     align-items: flex-start;
+  //     cursor: pointer;
+  //   }
+  //   .plan__card > .card__img {
+  //     width: 50px;
+  //     height: 50px;
+  //   }
+  // }
+  /* ============================== */
+  /* BUTTONS */
+  /* ============================== */
+
+
+  /* STEP3 | ADDS-ON */
+ 
+  
+  /* checbox hover only for big screen */
+  @media (min-width: 480px) {
+    
+  }
+  
+  /* checkbox checked */
+ 
+  
+  /* card title */
+  .card__text {
+    margin-right: auto;
+  }
+  
+  /* step 4 */
+  .finishingup__card_container {
+    background-color: var(--Magnolia);
+    border: none;
+    padding: 10px 20px;
+    cursor: auto;
+    .selected__plan_container {
+      padding-top: 10px;
+      padding-bottom: 20px;
+      // border-bottom: solid 1px grey;
+      #selected-plan {
+        display: flex;
+        align-items: center;
+        color: var(--Marine-blue);
+        font-size: 1.5rem;
+        text-transform: capitalize;
+        font-weight: 700;
+        padding-bottom: 5px;
+        justify-content: space-between;
+        > p:nth-child(3) {
+          margin-left: auto;
+        }
+        > p:nth-child(2) {
+          margin-left: 4px;
+        }
+      }
+
+      .change__plan {
+        border: none;
+        background-color: transparent;
+        font-size: 1.2rem;
+        color: var(--Cool-gray);
+        text-decoration: underline;
+        cursor: pointer;
+        text-transform: capitalize;
+        transition: 0.25s;
+    
+        &:hover {
+          color: var(--Purplish-blue);
+        }
+    
+      }
+
+    }
+    #selected-addon{
+      li {
+        display: flex;
+        align-self: center;
+        justify-content: space-between;
+        padding-bottom: 20px;
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+      li:nth-child(1) {
+        border-top: 1px solid var(--Cool-gray);
+        padding-top: 25px;
+      }
+      li > span:nth-child(1) {
+        color: var(--Cool-gray);
+      }
+      li > span:nth-child(2) {
+        color: var(--Marine-blue);
+      }
+    }
+  }
+
+  #total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 20px;
+      >span:nth-child(1) {
+      color: var(--Cool-gray);
+      font-size: 1.2rem;
+    }
+    >span:nth-child(2) {
+      color: var(--Purplish-blue);
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    @include media-breakpoint-up(md){
+      > span:nth-child(2) {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  
+
 }
