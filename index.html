@@ -189,31 +189,32 @@
                     <p>A simple box with left and right section. Both flex and grid can be used</p>
                 </div>
                 <div class="content">
-                    <div class="flex-center h-100 align-items-start-m">
-                        <div class="rating-box col-12 col-md-3">
-                            <div class="">
-                                <span class="icon-star-circ"><img src="./assets/img/section3/icon-star.svg" alt="icon-star"></span>
-                            </div>
-                            <div class="title">
-                                How did we do?
-                            </div>
-                            <p>Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!</p>
-                            <ul>
-                                <li><a href="">1</a></li>
-                            </ul>
-                            <button class="btn btn-submit">SUBMIT</button>
-                            <!-- else -->
-                            <!-- <div class="thankyou">
-                                <div class="img-wrap col-5 m-auto">
-                                    <img src="./assets/img/section3/illustration-thank-you.svg" alt="thankyou"></div>
-                                    <span class=" rating-feedback">You selected * out of 5</span>
-                                    <div class="title">
-                                        Thank you!
-                                    </div>
-                                    <p>We appreciate you taking the time to give a rating.
-                                        If you ever need more support, don't hesitate to get in touch!</p>
-                            </div> -->
+                    <div class="flex-center h-100 ">
+                      <div class="rating-box col-12 col-md-3">
+                        <div v-if="!submitted">
+                          <div class="">
+                            <span class="icon-star-circ">
+                              <img src="./assets/img/section3/icon-star.svg" alt="icon-star">
+                            </span>
+                          </div>
+                          <div class="title">How did we do?</div>
+                          <p>Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!</p>
+                          <ul>
+                            <li v-for="num in 5" :key="num">
+                              <a class="flex-center" :class="{ 'selected': num === selectedRating }" @click.prevent="selectRating(num)">{{ num }}</a>
+                            </li>
+                          </ul>
+                          <button class="btn btn-submit" @click="submitRating">SUBMIT</button>
                         </div>
+                        <div class="thankyou text-center" v-else>
+                          <div class="img-wrap col-5 m-auto">
+                            <img src="./assets/img/section3/illustration-thank-you.svg" alt="thankyou">
+                          </div>
+                          <span class=" rating-feedback">You selected {{ selectedRating }} out of 5</span>
+                          <div class="title">Thank you!</div>
+                          <p>We appreciate you taking the time to give a rating. If you ever need more support, don't hesitate to get in touch!</p>
+                        </div>
+                      </div>
                     </div>
                 </div>
                </section>
@@ -592,20 +593,24 @@
                                     <div class="card">
                                         <div class="card__header">
                                             <div class="header-top">
-                                                <span class="card__view" id="pageviews-count">
-                                                    100K <span>Pageviews</span>   
-                                                </span>
-                                                <h2 class="card__price">
-                                                    <span id="price">$16.00</span>
-                                                    <span class="duration">/month</span>
-                                                </h2>
-                                                <input
-                                                    type="range"
-                                                    name="range"
-                                                    class="slider"
-                                                    id="range"
-                                                    aria-label="input"
-                                                />
+                                              <span class="card__view" id="pageviews-count">
+                                                {{ pageViews }}K <span>Pageviews</span>   
+                                            </span>
+                                            <h2 class="card__price">
+                                              <span id="price">${{ price }}</span>
+                                              <span class="duration">/{{ isYearly ? 'year' : 'month' }}</span>
+                                          </h2>
+                                          <input
+                                              type="range"
+                                              v-model="sliderValue"
+                                              min="10"
+                                              max="100"
+                                              step="10"
+                                              class="slider"
+                                              :style="sliderStyle"
+                                              id="range"
+                                              aria-label="input"
+                                          />
                                             </div>
                                             
                 
@@ -613,14 +618,14 @@
                                                 <p>Monthly Billing</p>
                                                 <input
                                                     type="checkbox"
-                                                    name="checkanually"
+                                                    v-model="isYearly"
                                                     class="switch"
                                                     aria-label="input"
                                                     id="toggle_discount"
                                                 />
                                                 <p class="billing">Yearly Billing</p>
-                                                <p class="discount">
-                                                    -25%<span> discount</span>
+                                                <p class="discount" v-if="isYearly">
+                                                  -25%<span> discount</span>
                                                 </p>
                                             </div>
                                         </div>

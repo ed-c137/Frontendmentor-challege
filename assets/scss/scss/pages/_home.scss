@@ -415,31 +415,67 @@ font-weight: 400;//400,700
 .rating-box{
   background: $gradient;
   padding: 2rem;
-  text-align: center;
   border-radius: 2rem;
 
   .icon-star-circ{
     background-color: rgba($darkblue, .7);
-
+    width: 2rem;
+    img{
+      width: 100%;
+    }
+  }
+  p{
+    color: $mediumGrey;
+    font-size: 1.1rem;
   }
 
   ul{
     li{
       background-color: #252E37;
-      padding: 0.2rem 0.7rem;
+      --size: 50px;
+      width: v(size); 
+      height: v(size); 
       border-radius: 50%;
       display: inline-block;
+      margin-right: 1rem;
+      overflow: hidden;
       a{
-        display: inline-block;
+       
+        width: 100%;
+        height: 100%;
+        // padding: 0.5rem 0.5rem;
+        // border-radius: 50%;
+        font-size: 1.1rem;
+        cursor: pointer;
+        &:hover{
+          background-color: $orange;
+          color: white;
+        }
+      }
+      a.selected{
+        
+          background-color: $lightGrey;
+          // color: #000;
+       
       }
     }
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     margin-top: 1rem;
+    display: flex;
+    justify-content: space-evenly;
   }
   .btn-submit{
     width: 100%;
     border-radius: .9rem;
     background-color: $orange;
+    padding: .8rem 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+    &:hover{
+      background-color: white;
+      color: $orange;
+    }
   }
 
 

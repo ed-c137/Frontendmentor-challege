@@ -6624,29 +6624,60 @@ section {
 #component-3 .rating-box {
   background: linear-gradient(0deg, rgba(37, 45, 55, 0.5) 0%, rgba(37, 45, 55, 0.9) 100%);
   padding: 2rem;
-  text-align: center;
   border-radius: 2rem;
 }
 #component-3 .rating-box .icon-star-circ {
   background-color: rgba(37, 45, 55, 0.7);
+  width: 2rem;
+}
+#component-3 .rating-box .icon-star-circ img {
+  width: 100%;
+}
+#component-3 .rating-box p {
+  color: hsl(216, 12%, 54%);
+  font-size: 1.1rem;
 }
 #component-3 .rating-box ul {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   margin-top: 1rem;
+  display: flex;
+  justify-content: space-evenly;
 }
 #component-3 .rating-box ul li {
   background-color: #252E37;
-  padding: 0.2rem 0.7rem;
+  --size: 50px;
+  width: var(--size);
+  height: var(--size);
   border-radius: 50%;
   display: inline-block;
+  margin-right: 1rem;
+  overflow: hidden;
 }
 #component-3 .rating-box ul li a {
-  display: inline-block;
+  width: 100%;
+  height: 100%;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+#component-3 .rating-box ul li a:hover {
+  background-color: hsl(25, 97%, 53%);
+  color: white;
+}
+#component-3 .rating-box ul li a.selected {
+  background-color: hsl(217, 12%, 63%);
 }
 #component-3 .rating-box .btn-submit {
   width: 100%;
   border-radius: 0.9rem;
   background-color: hsl(25, 97%, 53%);
+  padding: 0.8rem 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+}
+#component-3 .rating-box .btn-submit:hover {
+  background-color: white;
+  color: hsl(25, 97%, 53%);
 }
 #component-3 .rating-box .thankyou .rating-feedback {
   color: hsl(25, 97%, 53%);
