@@ -5,18 +5,40 @@ const app1 = createApp({
     return {
       items: null,
       percent: 76,
-      grade: 'great'
+      grade: 'great',
+      data:  [
+        {
+          "category": "Reaction",
+          "score": 80,
+          "icon": "./assets/img/section1/images/icon-reaction.svg"
+        },
+        {
+          "category": "Memory",
+          "score": 92,
+          "icon": "./assets/img/section1/images/icon-memory.svg"
+        },
+        {
+          "category": "Verbal",
+          "score": 61,
+          "icon": "./assets/img/section1/images/icon-verbal.svg"
+        },
+        {
+          "category": "Visual",
+          "score": 72,
+          "icon": "./assets/img/section1/images/icon-visual.svg"
+        }
+      ]
     };
   },
   mounted() {
     this.getItems();
   },
   methods: {
-    async getItems() {
+    getItems() {
       try {
-        const response = await fetch('/assets/data/section1-data.json');
-        const data = await response.json();
-        this.items = data;
+        // const response = await fetch('/assets/data/section1-data.json');
+        // const data = await response.json();
+        this.items = this.data;
         // console.log(this.items);
       } catch (error) {
         console.error(error);
